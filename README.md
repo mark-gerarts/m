@@ -10,14 +10,14 @@ Cloning the repo:
 
 ```
 $ sudo mkdir /m
-$ sudo chown mark:mark /m
+$ sudo chown mark:users /m
 $ cd /m
 $ git clone git@github.com:mark-gerarts/m.git .
 ```
 
 All the following stuff could be just a script I guess, but for now it's copy-paste.
 
-Home manager setup:
+Home manager setup (move the install of home-manager to configuration.nix):
 
 ```
 $ nix-env -f '<nixpkgs>' -iA home-manager
@@ -29,5 +29,6 @@ $ home-manager switch
 Dotfiles (move these to home manager?):
 
 ```
-$ ln -s /m/home/.xmonad
+$ rm -r ~/.xmonad
+$ ln -s /m/home/.xmonad ~/
 ```

@@ -1,1 +1,2 @@
-xmonad.errors
+*
+!xmonad.hs
