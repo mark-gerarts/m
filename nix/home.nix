@@ -35,4 +35,24 @@
       pkgs.vimPlugins.vim-nix
     ];
   };
+
+  programs.git = {
+    enable = true;
+    userName = "Mark Gerarts";
+    userEmail = "mark.gerarts@gmail.com";
+  };
+
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+      ll = "ls -lAh --color=auto";
+      ".." = "cd ..";
+    };
+  };
+
+  home.packages = [
+    # Notes
+    pkgs.obsidian
+    pkgs.insync
+  ];
 }
