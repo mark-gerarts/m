@@ -34,6 +34,10 @@
     plugins = [
       pkgs.vimPlugins.vim-nix
     ];
+    extraConfig = ''
+      set number
+      syntax on
+    '';
   };
 
   programs.git = {
@@ -45,7 +49,7 @@
   programs.bash = {
     enable = true;
     shellAliases = {
-      ll = "ls -lAh --color=auto";
+      ll = "ls -vlAh --color=auto --group-directories-first";
       ".." = "cd ..";
     };
   };

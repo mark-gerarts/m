@@ -6,8 +6,9 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
+      ./virtualisation
     ];
 
   # Use the GRUB 2 boot loader.
@@ -74,10 +75,11 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.mark = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+  users = {
+    users.mark = {
+      isNormalUser = true;
+      extraGroups = [ "wheel" ];
+    };
   };
 
   # Clean up old generations automatically.
@@ -92,6 +94,7 @@
     wget 
     alacritty
     git
+    zsh
     # Text editors
     vim
     notepadqq
