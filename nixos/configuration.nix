@@ -97,9 +97,7 @@
     zsh
     # Text editors
     vim
-    notepadqq
     # GUI
-    firefox
     pcmanfm
     # WM / Desktop
     xmobar
@@ -109,6 +107,7 @@
     feh
   ];
 
+  # Forgive me for my sins, RMS
   nixpkgs.config.allowUnfree = true;
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -1,11 +1,15 @@
 { config, pkgs, ... }:
 
 {
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  imports = [
+    ./vim.nix
+    ./git.nix
+    ./bash.nix
+    ./firefox.nix
+  ];
 
-  # Home Manager needs a bit of information about you and the
-  # paths it should manage.
+  programs.home-manager.enable = true;
+  
   home.username = "mark";
   home.homeDirectory = "/home/mark";
 
@@ -27,36 +31,33 @@
   programs.man.enable = false;
   home.extraOutputsToInstall = [ "man" ];
 
-  # Vim configuration
-  programs.neovim = {
-    enable = true;
-    vimAlias = true;
-    plugins = [
-      pkgs.vimPlugins.vim-nix
-    ];
-    extraConfig = ''
-      set number
-      syntax on
-    '';
-  };
-
-  programs.git = {
-    enable = true;
-    userName = "Mark Gerarts";
-    userEmail = "mark.gerarts@gmail.com";
-  };
-
-  programs.bash = {
-    enable = true;
-    shellAliases = {
-      ll = "ls -vlAh --color=auto --group-directories-first";
-      ".." = "cd ..";
-    };
-  };
-
-  home.packages = [
+  home.packages = with pkgs; [
     # Notes
-    pkgs.obsidian
-    pkgs.insync
+    obsidian
+    insync
+
+    # Copy stuff commandline
+    xclip
+
+    # Editors
+    notepadqq
+
+    # File manager
+    pcmanfm
+
+    # Chat
+    slack
+    tdesktop
+
+    # Mounts
+    udiskie
+
+    # System
+    tree
+    htop
+    less
+
+    # Music
+    spotify
   ];
 }

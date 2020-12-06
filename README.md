@@ -42,5 +42,6 @@ Dotfiles (move these to home manager?):
 $ rm -r ~/.xmonad
 $ ln -s /m/home/.xmonad ~/
 
+$ # Or create a script to symlink them?
 $ cp -r /m/home/ /home/mark/
 ```
