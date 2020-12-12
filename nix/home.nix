@@ -7,10 +7,11 @@
     ./bash.nix
     ./firefox.nix
     ./vscode.nix
+    ./texlive.nix
   ];
 
   programs.home-manager.enable = true;
-  
+
   home.username = "mark";
   home.homeDirectory = "/home/mark";
 
