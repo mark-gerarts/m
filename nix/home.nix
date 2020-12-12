@@ -6,6 +6,7 @@
     ./git.nix
     ./bash.nix
     ./firefox.nix
+    ./vscode.nix
   ];
 
   programs.home-manager.enable = true;
@@ -40,7 +41,7 @@
     xclip
 
     # Editors
-    notepadqq
+    kate
 
     # File manager
     pcmanfm

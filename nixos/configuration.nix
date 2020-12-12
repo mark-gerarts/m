@@ -43,27 +43,21 @@
     keyMap = "us";
   };
 
-  # xserver
-  services.xserver.enable = true;
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.displayManager.defaultSession = "none+xmonad";
   services.xserver = {
-    windowManager.xmonad = {
-      enable = true;
-      enableContribAndExtras = true;
-      extraPackages = haskellPackages: [
-        haskellPackages.xmonad-contrib
-        haskellPackages.xmonad-extras
-        haskellPackages.xmonad
-      ];
+
+    enable = true;
+
+    displayManager = {
+      sddm.enable = true;
+      defaultSession = "plasma5";
     };
 
-    windowManager.openbox.enable = true;
-  };
+    desktopManager.plasma5 = {
+      enable = true;
+    };
 
-  # Configure keymap in X11
-  services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e";
+    layout = "us";
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
