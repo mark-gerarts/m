@@ -7,8 +7,10 @@
 {
   imports =
     [
+      ./xserver
       ./hardware-configuration.nix
-      ./virtualisation
+      ./virtualisation.nix
+      ./security.nix
     ];
 
   # Use the GRUB 2 boot loader.
@@ -43,22 +45,6 @@
     keyMap = "us";
   };
 
-  services.xserver = {
-
-    enable = true;
-
-    displayManager = {
-      sddm.enable = true;
-      defaultSession = "plasma5";
-    };
-
-    desktopManager.plasma5 = {
-      enable = true;
-    };
-
-    layout = "us";
-  };
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -85,8 +71,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # CLI
-    wget 
-    alacritty
+    wget
     git
     zsh
     # Text editors
@@ -131,4 +116,3 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "20.09"; # Did you read the comment?
 }
-
