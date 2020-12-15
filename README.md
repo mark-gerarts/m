@@ -45,3 +45,7 @@ $ ln -s /m/home/.xmonad ~/
 $ # Or create a script to symlink them?
 $ cp -r /m/home/ /home/mark/
 ```
+
+## KDE config
+
+- Autostart: add insync & xkbmap script

@@ -1,6 +1,11 @@
 { config, pkgs, ... }:
 
-{
+
+let
+  # This allows to fetch some specific packages from unstable. Someone please
+  # stop me if this is a bad idea.
+  unstable = import <nixos-unstable> {};
+in {
   imports = [
     ./vim.nix
     ./git.nix
@@ -35,8 +40,11 @@
 
   home.packages = with pkgs; [
     # Notes
-    obsidian
+    unstable.obsidian # The stable version does not work.
     insync
+
+    # Quickly run binaries
+    steam-run
 
     # Copy stuff commandline
     xclip
@@ -44,20 +52,15 @@
     # Editors
     kate
 
-    # File manager
-    pcmanfm
-
     # Chat
     slack
     tdesktop
-
-    # Mounts
-    udiskie
 
     # System
     tree
     htop
     less
+    filelight
 
     # Music
     spotify

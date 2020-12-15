@@ -29,6 +29,7 @@
       # Utilities
       cclip = "xclip -selection clipboard";
       prettyjson = "python -m json.tool";
+      psg = "ps aux | grep -v grep | grep -i -e VSZ -e";
 
       # Symfony
       untranslated="echo -n \"<target.*>[^\\s]*\\.[^\\s]*</target>\" | cclip | echo \"Copied to clipboard!\"";

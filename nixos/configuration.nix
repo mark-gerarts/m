@@ -67,23 +67,11 @@
   nix.gc.automatic = true;
   nix.gc.options = "--delete-older-than 30d";
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
-    # CLI
+    # Essential system stuff, the rest is defined in home-manager.
     wget
     git
-    zsh
-    # Text editors
     vim
-    # GUI
-    pcmanfm
-    # WM / Desktop
-    xmobar
-    nitrogen
-    picom
-    dmenu
-    feh
   ];
 
   # Forgive me for my sins, RMS
