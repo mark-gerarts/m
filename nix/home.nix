@@ -76,5 +76,9 @@ in {
 
     # Programming
     php
+    mkcert
+
+    # Custom hacked together derivations
+    (callPackage ./custom-derivations/ddev/default.nix { })
   ];
 }
