@@ -1,0 +1,49 @@
+{
+  "php.suggest.basic": false,
+  "emmet.includeLanguages": {
+    "twig": "html"
+  },
+  "intelephense.files.associations": [
+    "*.php",
+    "*.phtml",
+    "*.inc",
+    "*.module"
+  ],
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.autoSave": "afterDelay",
+  "editor.quickSuggestions": {
+    "comments": true
+  },
+  "editor.fontSize": 17,
+  "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.renderWhitespace": "all",
+  "editor.cursorStyle": "block",
+  "editor.wordWrap": "on",
+  "editor.rulers": [
+    80
+  ],
+  "languageServerHaskell.hlintOn": true,
+  "languageServerHaskell.maxNumberOfProblems": 100,
+  "languageServerHaskell.enableHIE": true,
+  "window.zoomLevel": 0,
+  "editor.fontLigatures": true,
+  "workbench.colorTheme": "Quiet Light",
+  "editor.minimap.enabled": false,
+  "latex-workshop.latex.recipe.default": "lastUsed",
+  "latex-workshop.view.pdf.viewer": "tab",
+  "rewrap.autoWrap.enabled": true,
+  "latex-workshop.latex.autoBuild.run": "never",
+  "editor.formatOnSave": true,
+  "[elm]": {
+        "editor.formatOnSave": true
+    },
+    "files.associations": {
+      "*.icl": "clean"
+    },
+    "extensions.ignoreRecommendations": false,
+    "[haskell]": {
+      "editor.defaultFormatter": "sjurmillidahl.ormolu-vscode"
+    }
+}
