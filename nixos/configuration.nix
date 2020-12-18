@@ -69,6 +69,14 @@
   # Forgive me for my sins, RMS
   nixpkgs.config.allowUnfree = true;
 
+  # This is required foor L2TP VPN.
+  services.strongswan = {
+    enable = true;
+    secrets = [
+      "ipsec.d/ipsec.nm-l2tp.secrets"
+    ];
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

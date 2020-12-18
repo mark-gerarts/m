@@ -63,9 +63,16 @@ in {
     less
     filelight
     unzip
+    neofetch
 
     # Dev
+    # Some of these are better of in a shell.nix, but I still don't have one for
+    # every project.
     docker-compose
+    mkcert
+    php
+    nodePackages.npm
+    nodejs
 
     # Music
     spotify
@@ -73,10 +80,6 @@ in {
     # Work
     networkmanager-openvpn
     plasma5.plasma-nm
-
-    # Programming
-    php
-    mkcert
 
     # Custom hacked together derivations
     (callPackage ./custom-derivations/ddev/default.nix { })
