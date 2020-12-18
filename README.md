@@ -19,17 +19,23 @@ Setting up NixOS:
 
 ```
 $ sudo rm /etc/nixos/configuration.nix
+$ sudo cp /etc/nixos/hardware-configuration.nix /m/nixos/
 $ sudo ln -s /m/nixos/configuration.nix /etc/nixos/configuration.nix
 ```
 
-*TODO*: the above doesn't quite work due to hardware-configuration.nix. Either change the PATH or copy the hardware config?
+Copy the correct configuration for current the device:
+
+```
+$ ln -s /m/nixos/device-specific-configuration.nix.pc.dist /m/nixos/device-specific-configuration.nix
+```
 
 Home manager setup (move the install of home-manager to configuration.nix):
 
 ```
 $ # Mind the release number
 $ nix-channel --add https://github.com/nix-community/home-manager/archive/release-20.09.tar.gz home-manager
-$ nix-channel --update
+$ nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable # For some specific packages from unstable
+$ nix-channel --update # Log out and in after this command
 $ nix-shell '<home-manager>' -A install
 $ rm -r ~/.config/nixpkgs/
 $ ln -s /m/nix ~/.config/nixpkgs
@@ -39,9 +45,6 @@ $ home-manager switch
 Dotfiles (move these to home manager?):
 
 ```
-$ rm -r ~/.xmonad
-$ ln -s /m/home/.xmonad ~/
-
 $ # Or create a script to symlink them?
 $ cp -r /m/home/ /home/mark/
 ```

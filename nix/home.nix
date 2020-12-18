@@ -51,6 +51,7 @@ in {
 
     # Editors
     kate
+    jetbrains.phpstorm
 
     # Chat
     slack
@@ -61,8 +62,19 @@ in {
     htop
     less
     filelight
+    unzip
+
+    # Dev
+    docker-compose
 
     # Music
     spotify
+
+    # Work
+    networkmanager-openvpn
+    plasma5.plasma-nm
+
+    # Programming
+    php
   ];
 }

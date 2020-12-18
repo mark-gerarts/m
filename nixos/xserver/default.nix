@@ -13,7 +13,7 @@
       enable = true;
     };
 
-    layout = "qwerty-fr";
+    layout = "us";
 
     # I haven't figured out a declarative or nice way to get qwerty-fr working
     # in plasma. The following allows the layout to be set with

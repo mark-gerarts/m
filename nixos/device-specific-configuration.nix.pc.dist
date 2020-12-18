@@ -1,0 +1,24 @@
+{ config, lib, pkgs, ...}:
+
+{
+  # Some things have to be different for separate devices. For example,
+  # my laptop uses MBR while my desktop PC uses EFI.
+  # All settings that are device specific are put into a dist file per
+  # device, so I can use only the one relevant for my device while still
+  # keeping stuff in version control.
+  #
+  # E.g. on my PC I would run `ln -s device-specific-configuration.nix.pc.dist device-specific-configuration.nix`
+
+  # EFI boot for my PC, with OS prober for the dual boot.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.useOSProber = true;
+
+  networking.hostName = "whirlpool";
+
+  # The name of the interface is device specific.
+  networking.interfaces.enp4s0.useDHCP = true;
+
+  # Use proprietary nvidia drivers on the desktop for way better performance. 
+  services.xserver.videoDrivers = [ "nvidia" ];
+}
