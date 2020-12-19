@@ -1,11 +1,6 @@
 { config, pkgs, ... }:
 
-
-let
-  # This allows to fetch some specific packages from unstable. Someone please
-  # stop me if this is a bad idea.
-  unstable = import <nixos-unstable> {};
-in {
+{
   imports = [
     ./vim.nix
     ./git.nix
@@ -13,6 +8,7 @@ in {
     ./firefox.nix
     ./vscode.nix
     ./texlive.nix
+    ./packages.nix
   ];
 
   programs.home-manager.enable = true;
@@ -37,51 +33,4 @@ in {
   # (Alternatively, try setting LANG as sugested in the thread).
   programs.man.enable = false;
   home.extraOutputsToInstall = [ "man" ];
-
-  home.packages = with pkgs; [
-    # Notes
-    unstable.obsidian # The stable version does not work.
-    insync
-
-    # Quickly run binaries
-    steam-run
-
-    # Copy stuff commandline
-    xclip
-
-    # Editors
-    kate
-    jetbrains.phpstorm
-
-    # Chat
-    slack
-    tdesktop
-
-    # System
-    tree
-    htop
-    less
-    filelight
-    unzip
-    neofetch
-
-    # Dev
-    # Some of these are better of in a shell.nix, but I still don't have one for
-    # every project.
-    docker-compose
-    mkcert
-    php
-    nodePackages.npm
-    nodejs
-
-    # Music
-    spotify
-
-    # Work
-    networkmanager-openvpn
-    plasma5.plasma-nm
-
-    # Custom hacked together derivations
-    (callPackage ./custom-derivations/ddev/default.nix { })
-  ];
 }

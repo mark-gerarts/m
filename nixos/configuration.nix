@@ -14,8 +14,6 @@
       ./device-specific-configuration.nix
     ];
 
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
   # Set your time zone.
   time.timeZone = "Europe/Brussels";
 
@@ -69,7 +67,7 @@
   # Forgive me for my sins, RMS
   nixpkgs.config.allowUnfree = true;
 
-  # This is required foor L2TP VPN.
+  # This is required for L2TP VPN.
   services.strongswan = {
     enable = true;
     secrets = [

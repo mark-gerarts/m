@@ -1,0 +1,7 @@
+{ config, pkgs, lib, ... }:
+
+{
+  # @todo: add boot options here etc. Will need to figure out when the time
+  # comes to install NixOS on the laptop.
+  networking.wireless.enable = true;
+}
