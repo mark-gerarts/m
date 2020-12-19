@@ -32,6 +32,9 @@ in {
     unzip
     neofetch
 
+    # More example based manpages
+    tldr
+
     # Dev
     # Some of these are better of in a shell.nix, but I still don't have one for
     # every project.
@@ -51,8 +54,12 @@ in {
     # Work
     networkmanager-openvpn
     plasma5.plasma-nm
+    libreoffice
+    thunderbird
+    birdtray
 
     # Custom hacked together derivations
     (callPackage ./custom-derivations/ddev/default.nix { })
+    (callPackage ./custom-derivations/comma/default.nix { })
   ];
 }

@@ -9,6 +9,9 @@
     ./vscode.nix
     ./texlive.nix
     ./packages.nix
+    ./kitty.nix
+    ./bat.nix
+    ./pass.nix
   ];
 
   programs.home-manager.enable = true;
