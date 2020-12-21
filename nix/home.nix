@@ -12,6 +12,7 @@
     ./kitty.nix
     ./bat.nix
     ./pass.nix
+    ./chromium.nix
   ];
 
   programs.home-manager.enable = true;

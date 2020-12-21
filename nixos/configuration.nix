@@ -54,6 +54,9 @@
     wget
     git
     vim
+
+    # To manage SDDM settings in a GUI.
+    plasma5.sddm-kcm
   ];
 
   # Forgive me for my sins, RMS
