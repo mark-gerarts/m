@@ -24,6 +24,9 @@ in {
     slack
     tdesktop
 
+    # Images
+    kdeApplications.gwenview
+
     # System
     tree
     htop
