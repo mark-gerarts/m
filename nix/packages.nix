@@ -50,6 +50,7 @@ in {
     ghc
     ormolu
     unstable.haskell-language-server # The stable version has a bug with hlint not working
+    imagemagick
 
     # Music
     spotify
@@ -60,6 +61,12 @@ in {
     libreoffice
     thunderbird
     birdtray
+
+    # Required for gpg.
+    pinentry
+
+    # For the Linux ISOs :^)
+    deluge
 
     # Custom hacked together derivations
     (callPackage ./custom-derivations/ddev/default.nix { })

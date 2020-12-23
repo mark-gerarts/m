@@ -13,6 +13,7 @@
     ./bat.nix
     ./pass.nix
     ./chromium.nix
+    ./gpg.nix
   ];
 
   programs.home-manager.enable = true;
