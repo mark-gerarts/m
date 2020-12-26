@@ -68,6 +68,10 @@ in {
     # For the Linux ISOs :^)
     deluge
 
+    # For spellchecking in vscode+latex
+    hunspell
+    hunspellDicts.en_US
+
     # Custom hacked together derivations
     (callPackage ./custom-derivations/ddev/default.nix { })
     (callPackage ./custom-derivations/comma/default.nix { })

@@ -49,6 +49,17 @@ $ # Or create a script to symlink them?
 $ cp -r /m/home/ /home/mark/
 ```
 
+## VSCode
+
+Install dictionaries for SpellRight:
+
+```
+$ ln -s /home/mark/.nix-profile/share/hunspell/* ~/.config/Code/Dictionaries
+```
+
+Additional languages are provided in the hunspellDicts.\* packages.
+
+
 ## KDE config
 
 - Autostart: add insync & xkbmap script
