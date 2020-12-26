@@ -52,3 +52,4 @@ $ cp -r /m/home/ /home/mark/
 ## KDE config
 
 - Autostart: add insync & xkbmap script
+- Search: disable file search
