@@ -71,6 +71,7 @@ in {
     # For spellchecking in vscode+latex
     hunspell
     hunspellDicts.en_US
+    hunspellDicts.en_GB-large
 
     # Custom hacked together derivations
     (callPackage ./custom-derivations/ddev/default.nix { })

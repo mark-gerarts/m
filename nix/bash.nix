@@ -93,6 +93,11 @@
         #default color
         DF='\[\e[0m\]'
         PS1="[''\${UC}\u''\${RC}@''\${HC}\h''\${RC}:\w''\${DF}] ''\${SC}''\${DF} "
+
+        # Add a visual indication if we're in a nix-shell environment.
+        if [[ -n "$IN_NIX_SHELL" ]]; then
+          PS1="[''\${UC}\u''\${RC}@''\${HC}\h''\${RC}:\w''\${DF}]* ''\${SC}''\${DF} "
+        fi
       }
     '';
   };
