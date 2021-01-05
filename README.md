@@ -62,5 +62,15 @@ Additional languages are provided in the hunspellDicts.\* packages.
 
 ## KDE config
 
-- Autostart: add insync & xkbmap script
-- Search: disable file search
+In no particular order, adding to this as I go:
+
+- Startup and Shutdown
+  - Autostart
+    - Add insymc & xkbmap script
+- Search
+  - File search
+    - Disable file search
+- Window management
+  - Window behavior
+    - Window actions
+      - Modifier key: meta

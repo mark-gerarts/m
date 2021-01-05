@@ -51,6 +51,7 @@ in {
     ormolu
     unstable.haskell-language-server # The stable version has a bug with hlint not working
     imagemagick
+    plantuml
 
     # Music
     spotify
