@@ -74,6 +74,9 @@ in {
     hunspellDicts.en_US
     hunspellDicts.en_GB-large
 
+    # Nix tooling
+    nix-index
+
     # Custom hacked together derivations
     (callPackage ./custom-derivations/ddev/default.nix { })
     (callPackage ./custom-derivations/comma/default.nix { })

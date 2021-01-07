@@ -99,6 +99,10 @@
           PS1="[''\${UC}\u''\${RC}@''\${HC}\h''\${RC}:\w''\${DF}]* ''\${SC}''\${DF} "
         fi
       }
+
+      # Direnv integration with silent output.
+      export DIRENV_LOG_FORMAT=""
+      eval "$(direnv hook bash)"
     '';
   };
 }
