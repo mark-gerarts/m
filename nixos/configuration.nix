@@ -46,6 +46,8 @@
     };
   };
 
+  nix.trustedUsers = [ "root" "mark" ];
+
   # Clean up old generations automatically.
   nix.gc.automatic = true;
   nix.gc.options = "--delete-older-than 30d";

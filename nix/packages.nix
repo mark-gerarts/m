@@ -9,6 +9,7 @@ in {
     # Notes
     unstable.obsidian # The stable version does not work.
     insync
+    pandoc
 
     # Quickly run binaries
     steam-run
@@ -62,6 +63,7 @@ in {
     libreoffice
     thunderbird
     birdtray
+    kdeApplications.kcalc
 
     # Required for gpg.
     pinentry
