@@ -35,6 +35,9 @@
       # Symfony
       untranslated="echo -n \"<target.*>[^\\s]*\\.[^\\s]*</target>\" | cclip | echo \"Copied to clipboard!\"";
       untranslated-csv="echo -n \";(\\\"|)[^\\s]*\\.[^\\s]*\" | cclip | echo \"Copied to clipboard!\"";
+
+      # Nix
+      ns = "nix-shell";
     };
 
     initExtra = ''
