@@ -59,7 +59,7 @@
     vim
 
     # To manage SDDM settings in a GUI.
-    plasma5.sddm-kcm
+    sddm-kcm
   ];
 
   # Forgive me for my sins, RMS

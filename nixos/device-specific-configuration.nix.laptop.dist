@@ -1,7 +1,13 @@
 { config, pkgs, lib, ... }:
 
 {
-  # @todo: add boot options here etc. Will need to figure out when the time
-  # comes to install NixOS on the laptop.
-  networking.wireless.enable = true;
+  # See https://github.com/NixOS/nixos-hardware for channel setup instructions.
+  imports = [ <nixos-hardware/dell/xps/15-9500> ];
+
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.useOSProber = true;
+
+  networking.hostName = "brutus";
+  networking.interfaces.wlp2s0.useDHCP = true;
 }
