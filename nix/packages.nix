@@ -26,7 +26,7 @@ in {
     tdesktop
 
     # Images
-    kdeApplications.gwenview
+    gwenview
 
     # System
     tree
@@ -59,11 +59,11 @@ in {
 
     # Work
     networkmanager-openvpn
-    plasma5.plasma-nm
+    plasma-nm
     libreoffice
     thunderbird
     birdtray
-    kdeApplications.kcalc
+    kcalc
 
     # Required for gpg.
     pinentry
