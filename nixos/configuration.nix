@@ -25,6 +25,9 @@
 
   networking.networkmanager.enable = true;
 
+  # For quick hostfile changes (lost on rebuild)
+  environment.etc.hosts.mode = "0644";
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
