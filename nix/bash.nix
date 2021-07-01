@@ -4,6 +4,11 @@
   programs.bash = {
     enable = true;
 
+    # Big history, ignore duplicates
+    historyControl = ["erasedups" "ignoredups"];
+    historyFileSize = 200000;
+    historySize = 300000;
+
     shellAliases = {
       # Navigating the filesystem
       ll = "ls -vlAh --color=auto --group-directories-first";
