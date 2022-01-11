@@ -78,10 +78,18 @@
 
   programs.ssh.startAgent = true;
 
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "mark" ];
+
   # Powering off takes 90s to finish because containerd doesn't get killed
   # properly. This is a workaround. See
   # https://github.com/containerd/containerd/issues/386#issuecomment-304837687
   systemd.services.docker.serviceConfig.KillMode = "mixed";
+
+  # Also, 90s is overkill anyways.
+  systemd.extraConfig = ''
+    DefaultTimeoutStopSec=10s
+  '';
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

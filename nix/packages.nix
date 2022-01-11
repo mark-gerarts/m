@@ -24,6 +24,7 @@ in {
     # Chat
     slack
     tdesktop
+    signal-desktop
 
     # Images
     gwenview

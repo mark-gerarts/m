@@ -6,7 +6,7 @@
 
     displayManager = {
       sddm.enable = true;
-      defaultSession = "plasma5";
+      defaultSession = "plasma";
     };
 
     desktopManager.plasma5 = {
