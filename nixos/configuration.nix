@@ -81,6 +81,11 @@
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "mark" ];
 
+  # The journal takes up 4G by default, no need for that.
+  services.journald.extraConfig = ''
+    SystemMaxUse=50M
+  '';
+
   # Powering off takes 90s to finish because containerd doesn't get killed
   # properly. This is a workaround. See
   # https://github.com/containerd/containerd/issues/386#issuecomment-304837687
