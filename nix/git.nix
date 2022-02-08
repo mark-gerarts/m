@@ -7,6 +7,7 @@
     userEmail = "mark.gerarts@gmail.com";
     aliases = {
       co = "checkout";
+      st = "status";
     };
     extraConfig = {
       core = {
