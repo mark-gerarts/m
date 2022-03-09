@@ -62,8 +62,6 @@ in {
     networkmanager-openvpn
     plasma-nm
     libreoffice
-    thunderbird
-    birdtray
     kcalc
 
     # Required for gpg.

@@ -4,8 +4,8 @@ with pkgs;
 
 runCommand "ddev" {
     src = fetchurl {
-        url = "https://github.com/drud/ddev/releases/download/v1.18.0/ddev_linux-amd64.v1.18.0.tar.gz";
-        sha256 = "1qxm5c68gns4vglmyvrfd71ig3mypzv1qhk4wyys0y4kpfn28f2d";
+        url = "https://github.com/drud/ddev/releases/download/v1.18.2/ddev_linux-amd64.v1.18.2.tar.gz";
+        sha256 = "1rqx19i8vzbskmm2vrl4za5wi1ym2vgqqkfwsjmyafy9hc2v44f3";
     };
 } ''
     mkdir -p $out/bin

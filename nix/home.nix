@@ -9,7 +9,6 @@
     ./vscode.nix
     ./texlive.nix
     ./packages.nix
-    ./kitty.nix
     ./bat.nix
     ./pass.nix
     ./chromium.nix
