@@ -13,7 +13,7 @@
       #
       # @see https://github.com/NixOS/nixpkgs/issues/111852
       # @see https://docs.docker.com/network/iptables/#prevent-docker-from-manipulating-iptables
-      extraOptions = ''--iptables=false --ip6tables=false'';
+      # extraOptions = ''--iptables=false --ip6tables=false'';
     };
 
     virtualbox.host.enable = true;
