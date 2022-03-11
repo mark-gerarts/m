@@ -25,6 +25,9 @@
 
   networking.networkmanager.enable = true;
 
+  # Explicitly enable 9000 for xdebug.
+  networking.firewall.allowedTCPPorts = [ 9000 ];
+
   # For quick hostfile changes (lost on rebuild)
   environment.etc.hosts.mode = "0644";
 
@@ -78,7 +81,6 @@
 
   programs.ssh.startAgent = true;
 
-  virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "mark" ];
 
   # The journal takes up 4G by default, no need for that.
