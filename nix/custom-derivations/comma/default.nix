@@ -9,7 +9,7 @@ let
       owner  = "Shopify";
       repo   = "comma";
       rev    = "54149dc417819af14ddc0d59216d4add5280ad14";
-      sha256 = "0n5a3rnv9qnnsrl76kpi6dmaxmwj1mpdd2g0b4n1wfimqfaz6gi1";
+      sha256 = "1xjyn42w18w2mn16i7xl0dvay60w82ghayan1ia7v1qqr0a0fac9";
   };
 
 in (import comma {})
