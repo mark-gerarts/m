@@ -35,6 +35,7 @@ in {
     less
     filelight
     unzip
+    zip
     neofetch
 
     # More example based manpages
