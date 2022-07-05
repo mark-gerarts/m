@@ -43,6 +43,8 @@
 
       # Nix
       ns = "nix-shell";
+
+      track = "vim ~/timetracking";
     };
 
     initExtra = ''
