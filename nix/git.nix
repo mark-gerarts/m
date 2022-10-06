@@ -13,8 +13,12 @@
       core = {
         editor = "vim";
       };
+      init = {
+        defaultBranch = "main";
+      };
       push = {
         default = "simple";
+        autoSetupRemote = true;
       };
       tag = {
         sort = "-version:refname";
