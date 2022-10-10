@@ -24,7 +24,7 @@
     # startup (NOT session startup, that won't work) in the autostart settings.
     #
     # I'd rather be able to actually install the layout and set it in the
-    # keyboard options, or directly here in the config. But hey, I spend enough
+    # keyboard options, or directly here in the config. But hey, I spent enough
     # time on just getting it to work already.
     extraLayouts = {
       qwerty-fr = {

@@ -34,7 +34,7 @@
 
       # Utilities
       cclip = "xclip -selection clipboard";
-      prettyjson = "python -m json.tool";
+      prettyjson = "ns -p python --run 'python -m json.tool'";
       psg = "ps aux | grep -v grep | grep -i -e VSZ -e";
 
       # Symfony
