@@ -106,6 +106,11 @@
         command = "-editor.action.quickFix";
         when = "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly";
       }
+      {
+        key = "ctrl+alt+b";
+        command = "latex-workshop.build";
+        when = "editorLangId == 'latex'";
+      }
     ];
 
   };
