@@ -54,7 +54,6 @@ in {
     ormolu
     unstable.haskell-language-server # The stable version has a bug with hlint not working
     imagemagick
-    plantuml
 
     # Music
     spotify
@@ -78,6 +77,9 @@ in {
 
     # Nix tooling
     nix-index
+
+    # Fonts
+    fira-code
 
     # Custom hacked together derivations
     (callPackage ./custom-derivations/ddev/default.nix { })
