@@ -6,7 +6,7 @@ let
   # We just fetch comma directly & unaltered from Github. This way we it can be
   # managed with home-manager.
   #
-  # @todo: update to nix-community/comma
+  # @todo: just install comma from packages instead.
   comma = fetchFromGitHub {
       owner  = "Shopify";
       repo   = "comma";

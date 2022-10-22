@@ -80,6 +80,7 @@ in {
 
     # Fonts
     fira-code
+    fira-code-symbols
 
     # Custom hacked together derivations
     (callPackage ./custom-derivations/ddev/default.nix { })

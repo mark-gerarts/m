@@ -14,6 +14,7 @@
     ./chromium.nix
     ./gpg.nix
     ./lorri.nix
+    ./files.nix
   ];
 
   programs.home-manager.enable = true;

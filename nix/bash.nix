@@ -13,6 +13,11 @@
       # Navigating the filesystem
       ll = "ls -vlAh --color=auto --group-directories-first";
       ".." = "cd ..";
+      u = "cd ..";
+      uu = "cd ../..";
+      uuu = "cd ../../..";
+      uuuu = "cd ../../../../";
+      uuuuu = "cd ../../../../../";
 
       # I can't type
       docker-composer = "docker-compose";
