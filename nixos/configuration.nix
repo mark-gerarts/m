@@ -66,7 +66,16 @@
 
     # To manage SDDM settings in a GUI.
     sddm-kcm
+
+    # Gnome extensions
+    gnome.gnome-tweaks
+    gnomeExtensions.appindicator
+    gnomeExtensions.hide-top-bar
+    gnomeExtensions.no-title-bar
+    # gnomeExtensions.pop-shell
   ];
+
+  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
   # Forgive me for my sins, RMS
   nixpkgs.config.allowUnfree = true;

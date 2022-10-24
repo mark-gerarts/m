@@ -74,3 +74,10 @@ In no particular order, adding to this as I go:
   - Window behavior
     - Window actions
       - Modifier key: meta
+
+## Gnome config
+
+- Caps lock -> ctrl
+- Enable/configure extensions in tweak tool
+- @todo: check if we can put this in nix config as well
+- Shortcut for terminal
