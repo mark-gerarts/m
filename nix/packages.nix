@@ -18,16 +18,12 @@ in {
     xclip
 
     # Editors
-    kate
     jetbrains.phpstorm
 
     # Chat
     slack
     tdesktop
     signal-desktop
-
-    # Images
-    gwenview
 
     # System
     tree
@@ -60,9 +56,7 @@ in {
 
     # Work
     networkmanager-openvpn
-    plasma-nm
     libreoffice
-    kcalc
 
     # Required for gpg.
     pinentry

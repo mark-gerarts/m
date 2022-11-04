@@ -1,5 +1,11 @@
 { config, lib, pkgs, ... }:
 
 {
-  programs.bat.enable = true;
+  programs.bat = {
+    enable = true;
+
+    config = {
+      style = "plain";
+    };
+  };
 }
