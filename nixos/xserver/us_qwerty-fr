@@ -1,8 +1,8 @@
 
 // qwerty-fr:
 
-partial alphanumeric_keys 
-xkb_symbols "qwerty-fr"
+partial alphanumeric_keys
+xkb_symbols "custom"
 {
     include "us(basic)"
     include "level3(ralt_switch)"
@@ -64,4 +64,3 @@ xkb_symbols "qwerty-fr"
     key <SPCE> { [ space,        space,       nobreakspace,    nobreakspace    ] };
 
 };
-

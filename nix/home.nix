@@ -39,4 +39,8 @@
   # (Alternatively, try setting LANG as sugested in the thread).
   programs.man.enable = false;
   home.extraOutputsToInstall = [ "man" ];
+
+  # Prevent home-manager from managing the keyboard, otherwise it will ovewrite
+  # any setting done in the NixOS configuration.
+  home.keyboard = null;
 }

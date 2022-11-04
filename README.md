@@ -59,25 +59,13 @@ $ ln -s /home/mark/.nix-profile/share/hunspell/* ~/.config/Code/Dictionaries
 
 Additional languages are provided in the hunspellDicts.\* packages.
 
-
-## KDE config
-
-In no particular order, adding to this as I go:
-
-- Startup and Shutdown
-  - Autostart
-    - Add insymc & xkbmap script
-- Search
-  - File search
-    - Disable file search
-- Window management
-  - Window behavior
-    - Window actions
-      - Modifier key: meta
-
 ## Gnome config
+
+@todo: check if we can put this in nix config as well (dconf)
 
 - Caps lock -> ctrl
 - Enable/configure extensions in tweak tool
-- @todo: check if we can put this in nix config as well
 - Shortcut for terminal
+- Shortcut for win+e (launchers -> home folder)
+- Set nautilus to use list view, folders before files
+- Terminal settings (tab alt+l/r, color, font size, ...)
