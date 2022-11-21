@@ -8,7 +8,7 @@ in {
   home.packages = with pkgs; [
     # Notes
     unstable.obsidian # The stable version does not work.
-    insync
+    # insync
     pandoc
 
     # Quickly run binaries

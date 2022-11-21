@@ -73,6 +73,7 @@
     gnomeExtensions.clipboard-history
     gnomeExtensions.blur-my-shell
     gnomeExtensions.application-volume-mixer
+    gnome.gnome-terminal
   ];
 
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
