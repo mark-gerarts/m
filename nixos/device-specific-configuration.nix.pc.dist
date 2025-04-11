@@ -9,16 +9,14 @@
   #
   # E.g. on my PC I would run `ln -s device-specific-configuration.nix.pc.dist device-specific-configuration.nix`
 
-  # EFI boot for my PC, with OS prober for the dual boot.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.useOSProber = true;
-
+  boot.loader.grub.device = "/dev/nvme0n1";
   networking.hostName = "whirlpool";
 
-  # The name of the interface is device specific.
-  networking.interfaces.enp4s0.useDHCP = true;
+  # Autologin.
+  services.xserver.displayManager.autoLogin.enable = true;
+  services.xserver.displayManager.autoLogin.user = "mark";
+  # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
+  systemd.services."getty@tty1".enable = false;
+  systemd.services."autovt@tty1".enable = false;
 
-  # Use proprietary nvidia drivers on the desktop for way better performance. 
-  services.xserver.videoDrivers = [ "nvidia" ];
 }

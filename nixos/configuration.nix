@@ -1,108 +1,68 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-# TODO: simplify
-# - Remove home manager, it's just extra complexity. Symlink dotfiles instead
-# - My configuration can be a single file (minus device-specific)
-
 { config, pkgs, ... }:
 
 {
   imports =
     [
-      ./xserver # TODO: check if this is still relevant
       ./hardware-configuration.nix
-      ./virtualisation.nix
-      ./security.nix
       ./device-specific-configuration.nix
     ];
 
-  time.timeZone = "Europe/Brussels";
-  time.hardwareClockInLocalTime = true; # To please Windows...
-
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.useOSProber = true;
 
   networking.networkmanager.enable = true;
 
-  # For quick hostfile changes (lost on rebuild)
-  environment.etc.hosts.mode = "0644";
+  time.timeZone = "Europe/Brussels";
 
   i18n.defaultLocale = "en_US.UTF-8";
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "us";
+
+  services.xserver = {
+    enable = true;
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+  };
+
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
   };
 
   services.printing.enable = true;
 
-  # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
-
-  users = {
-    users.mark = {
-      isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "docker" ];
-    };
+  # Sound.
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
   };
 
-  nix.trustedUsers = [ "root" "mark" ];
+  users.users.mark = {
+    isNormalUser = true;
+    description = "Mark";
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [];
+  };
 
-  nix.gc.automatic = true;
-  nix.gc.options = "--delete-older-than 30d";
+  programs.firefox.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    # Essential system stuff, the rest is defined in home-manager.
-    wget
-    git
-    vim
-
-    # Gnome extensions
-    # TODO: revise this (e.g. add caffeine, dash-to-dock, remove other stuff)
-    gnome.gnome-tweaks
-    gnomeExtensions.appindicator
-    gnomeExtensions.hide-top-bar
-    gnomeExtensions.no-title-bar
-    gnomeExtensions.pop-shell
-    gnomeExtensions.clipboard-history
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.application-volume-mixer
-    gnome.gnome-terminal
-  ];
-
-  services.flatpak.enable = true;
-
-  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
-
-  # Forgive me for my sins, RMS
+  # Forgive me for my sins, RMS.
   nixpkgs.config.allowUnfree = true;
 
-  programs.ssh.startAgent = true;
+  environment.systemPackages = with pkgs; [
+    # System essentials
+    vim
+    wget
+    git
+    delta
 
-  # The journal takes up 4G by default, no need for that.
-  services.journald.extraConfig = ''
-    SystemMaxUse=50M
-  '';
+    # Dev
+    vscode
+  ];
 
-  # Powering off takes 90s to finish because containerd doesn't get killed
-  # properly. This is a workaround. See
-  # https://github.com/containerd/containerd/issues/386#issuecomment-304837687
-  systemd.services.docker.serviceConfig.KillMode = "mixed";
-
-  # Also, 90s is overkill anyways.
-  systemd.extraConfig = ''
-    DefaultTimeoutStopSec=10s
-  '';
-
-  system.autoUpgrade = {
-    enable = true;
-    persistent = true;
-    dates = "daily";
-  };
+  programs.gnupg.agent.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -110,5 +70,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "20.09"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
+
 }
