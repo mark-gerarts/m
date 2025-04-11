@@ -14,7 +14,6 @@
       ./device-specific-configuration.nix
     ];
 
-  # Set your time zone.
   time.timeZone = "Europe/Brussels";
   time.hardwareClockInLocalTime = true; # To please Windows...
 
@@ -25,20 +24,15 @@
 
   networking.networkmanager.enable = true;
 
-  # Explicitly enable 9000 for xdebug.
-  networking.firewall.allowedTCPPorts = [ 9000 ];
-
   # For quick hostfile changes (lost on rebuild)
   environment.etc.hosts.mode = "0644";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
   };
 
-  # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # Enable sound.
@@ -48,13 +42,12 @@
   users = {
     users.mark = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "docker"];
+      extraGroups = [ "wheel" "networkmanager" "docker" ];
     };
   };
 
   nix.trustedUsers = [ "root" "mark" ];
 
-  # Clean up old generations automatically.
   nix.gc.automatic = true;
   nix.gc.options = "--delete-older-than 30d";
 
@@ -65,6 +58,7 @@
     vim
 
     # Gnome extensions
+    # TODO: revise this (e.g. add caffeine, dash-to-dock, remove other stuff)
     gnome.gnome-tweaks
     gnomeExtensions.appindicator
     gnomeExtensions.hide-top-bar
@@ -80,14 +74,6 @@
 
   # Forgive me for my sins, RMS
   nixpkgs.config.allowUnfree = true;
-
-  # This is required for L2TP VPN.
-  services.strongswan = {
-    enable = true;
-    secrets = [
-      "ipsec.d/ipsec.nm-l2tp.secrets"
-    ];
-  };
 
   programs.ssh.startAgent = true;
 

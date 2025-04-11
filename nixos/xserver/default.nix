@@ -1,5 +1,7 @@
 { config, lib, pkgs, ...}:
 
+# TODO: check with a vanilla configuration.
+# TODO: qwerty-fr is part of nixpkgs nowadays
 {
   services.xserver = {
     enable = true;
@@ -31,6 +33,9 @@
     iagno
     hitori
     atomix
+    yelp
     seahorse
+    gnome-contacts
+    gnome-initial-setup
   ]);
 }

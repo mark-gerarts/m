@@ -21,11 +21,18 @@
 
       # I can't type
       docker-composer = "docker-compose";
+      docker-compose = "docker compose";
       sl = "ls";
       it = "git";
       gti = "git";
       gut = "git";
+      got = "git";
       "cd.." = "cd ..";
+      "code." = "code .";
+
+      # k8s
+      k = "kubectl";
+      kdebug = "kubectl run -i --tty --rm debug --image=arunvelsriram/utils --restart=Never -- bash";
 
       # Git
       glg = "git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(blue)- [%an]%C(reset)%C(bold yellow)%d%C(reset)'";
@@ -39,17 +46,11 @@
 
       # Utilities
       cclip = "xclip -selection clipboard";
-      prettyjson = "ns -p python --run 'python -m json.tool'";
+      prettyjson = "ns -p python --run 'python -m json.tool'"; # jq works better?
       psg = "ps aux | grep -v grep | grep -i -e VSZ -e";
-
-      # Symfony
-      untranslated="echo -n \"<target.*>[^\\s]*\\.[^\\s]*</target>\" | cclip | echo \"Copied to clipboard!\"";
-      untranslated-csv="echo -n \";(\\\"|)[^\\s]*\\.[^\\s]*\" | cclip | echo \"Copied to clipboard!\"";
 
       # Nix
       ns = "nix-shell";
-
-      track = "vim ~/timetracking";
     };
 
     initExtra = ''
@@ -114,10 +115,6 @@
           PS1="[''\${UC}\u''\${RC}@''\${HC}\h''\${RC}:\w''\${DF}]* ''\${SC}''\${DF} "
         fi
       }
-
-      # Direnv integration with silent output.
-      export DIRENV_LOG_FORMAT=""
-      eval "$(direnv hook bash)"
 
       # https://gist.github.com/rajeshg/712300
       function mkcd {

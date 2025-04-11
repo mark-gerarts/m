@@ -13,7 +13,6 @@
     ./pass.nix
     ./chromium.nix
     ./gpg.nix
-    ./lorri.nix
     ./files.nix
   ];
 

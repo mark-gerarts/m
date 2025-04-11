@@ -8,21 +8,16 @@ in {
   home.packages = with pkgs; [
     # Notes
     unstable.obsidian # The stable version does not work.
-    # insync
     pandoc
 
-    # Quickly run binaries
-    steam-run
+    # Quickly run stuff
+    nix-alien
+    comma
 
     # Copy stuff commandline
     xclip
 
-    # Editors
-    jetbrains.phpstorm
-
     # Chat
-    slack
-    tdesktop
     signal-desktop
 
     # System
@@ -40,16 +35,11 @@ in {
     # Dev
     # Some of these are better of in a shell.nix, but I still don't have one for
     # every project.
+    jq
     docker-compose
     mkcert
-    php
     nodePackages.npm
     nodejs
-    stack
-    ghc
-    ormolu
-    unstable.haskell-language-server # The stable version has a bug with hlint not working
-    imagemagick
 
     # Music
     spotify
@@ -75,9 +65,5 @@ in {
     # Fonts
     fira-code
     fira-code-symbols
-
-    # Custom hacked together derivations
-    (callPackage ./custom-derivations/ddev/default.nix { })
-    (callPackage ./custom-derivations/comma/default.nix { })
   ];
 }
