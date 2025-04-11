@@ -2,12 +2,16 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
+# TODO: simplify
+# - Remove home manager, it's just extra complexity. Symlink dotfiles instead
+# - My configuration can be a single file (minus device-specific)
+
 { config, pkgs, ... }:
 
 {
   imports =
     [
-      ./xserver
+      ./xserver # TODO: check if this is still relevant
       ./hardware-configuration.nix
       ./virtualisation.nix
       ./security.nix
@@ -70,14 +74,14 @@
     gnome.gnome-terminal
   ];
 
+  services.flatpak.enable = true;
+
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
   # Forgive me for my sins, RMS
   nixpkgs.config.allowUnfree = true;
 
   programs.ssh.startAgent = true;
-
-  users.extraGroups.vboxusers.members = [ "mark" ];
 
   # The journal takes up 4G by default, no need for that.
   services.journald.extraConfig = ''
@@ -93,6 +97,12 @@
   systemd.extraConfig = ''
     DefaultTimeoutStopSec=10s
   '';
+
+  system.autoUpgrade = {
+    enable = true;
+    persistent = true;
+    dates = "daily";
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
