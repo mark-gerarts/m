@@ -44,24 +44,6 @@ Set up dotfiles (creates symlinks):
 $ /m/home/setup.sh
 ```
 
-## Flatpak
-
-```bash
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-```
-
-A reboot is required after this, to do stuff with flathub.
-
-## VSCode
-
-Install dictionaries for SpellRight:
-
-```bash
-$ ln -s /home/mark/.nix-profile/share/hunspell/* ~/.config/Code/Dictionaries
-```
-
-Additional languages are provided in the hunspellDicts.\* packages.
-
 ## Gnome config
 
 Some things that are not poured in a script yet.
