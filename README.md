@@ -32,6 +32,12 @@ Copy the correct configuration for current device:
 $ ln -s /m/nixos/device-specific-configuration.nix.pc.dist /m/nixos/device-specific-configuration.nix
 ```
 
+Switch to the new config:
+
+```bash
+$ nixos-rebuild switch
+```
+
 Set up dotfiles (creates symlinks):
 
 ```bash

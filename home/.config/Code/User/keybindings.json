@@ -1,37 +1,127 @@
-// Place your key bindings in this file to override the defaultsauto[]
 [
-    {
-        "key": "alt+right",
-        "command": "workbench.action.nextEditor"
-    },
-    {
-        "key": "ctrl+pagedown",
-        "command": "-workbench.action.nextEditor"
-    },
-    {
-        "key": "alt+left",
-        "command": "workbench.action.previousEditor"
-    },
-    {
-        "key": "ctrl+pageup",
-        "command": "-workbench.action.previousEditor"
-    },
-    {
-        "key": "ctrl+x ctrl+c",
-        "command": "workbench.action.closeAllEditors"
-    },
-    {
-        "key": "ctrl+x ctrl+k",
-        "command": "-workbench.action.closeAllEditors"
-    },
-    {
-        "key": "alt+enter",
-        "command": "editor.action.quickFix",
-        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "ctrl+.",
-        "command": "-editor.action.quickFix",
-        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
-    }
+  {
+    "command": "workbench.action.nextEditor",
+    "key": "alt+right"
+  },
+  {
+    "command": "workbench.action.previousEditor",
+    "key": "alt+left"
+  },
+  {
+    "command": "workbench.action.closeAllEditors",
+    "key": "ctrl+x ctrl+c"
+  },
+  {
+    "command": "-workbench.action.closeAllEditors",
+    "key": "ctrl+x ctrl+k"
+  },
+  {
+    "command": "editor.action.quickFix",
+    "key": "alt+enter",
+    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "command": "-editor.action.quickFix",
+    "key": "ctrl+.",
+    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "command": "latex-workshop.build",
+    "key": "ctrl+alt+b",
+    "when": "editorLangId == 'latex'"
+  },
+  {
+    "key": "ctrl+;",
+    "command": "-editor.action.commentLine",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "alt+e",
+    "command": "calva.evaluateTopLevelFormToCursor",
+    "when": "calva:connected && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure'"
+  },
+  {
+    "key": "shift+alt+enter",
+    "command": "-calva.evaluateTopLevelFormToCursor",
+    "when": "calva:connected && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure'"
+  },
+  {
+    "key": "shift+alt+enter",
+    "command": "calva.evaluateCurrentTopLevelForm",
+    "when": "calva:connected && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure'"
+  },
+  {
+    "key": "alt+enter",
+    "command": "-calva.evaluateCurrentTopLevelForm",
+    "when": "calva:connected && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure'"
+  },
+  {
+    "key": "shift shift",
+    "command": "workbench.action.quickOpen"
+  },
+  {
+    "key": "shift+alt+enter",
+    "command": "fsi.SendSelection",
+    "when": "editorFocus && !findWidgetVisible && editorLangId == 'fsharp'"
+  },
+  {
+    "key": "alt+enter",
+    "command": "-fsi.SendSelection",
+    "when": "editorFocus && !findWidgetVisible && editorLangId == 'fsharp'"
+  },
+  {
+    "key": "right",
+    "command": "-emacs-mcx.isearchExit"
+  },
+  {
+    "key": "left",
+    "command": "-emacs-mcx.isearchExit"
+  },
+  {
+    "key": "up",
+    "command": "-emacs-mcx.isearchExit"
+  },
+  {
+    "key": "down",
+    "command": "-emacs-mcx.isearchExit"
+  },
+  {
+    "key": "ctrl+b",
+    "command": "-emacs-mcx.isearchExit",
+    "when": "editorFocus && findWidgetVisible"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "-emacs-mcx.isearchExit",
+    "when": "editorFocus && findWidgetVisible"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-emacs-mcx.isearchExit",
+    "when": "editorFocus && findWidgetVisible"
+  },
+  {
+    "key": "ctrl+a",
+    "command": "-emacs-mcx.isearchExit",
+    "when": "editorFocus && findWidgetVisible"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "-emacs-mcx.isearchExit",
+    "when": "editorFocus && findWidgetVisible"
+  },
+  {
+    "key": "enter",
+    "command": "-emacs-mcx.isearchExit"
+  },
+  {
+    "key": "alt+backspace",
+    "command": "-emacs-mcx.backwardKillWord",
+    "when": "editorTextFocus && !config.emacs-mcx.useMetaPrefixMacCmd && !editorReadonly"
+  },
+  {
+    "key": "alt+backspace",
+    "command": "deleteWordLeft",
+    "when": "editorTextFocus && !config.emacs-mcx.useMetaPrefixMacCmd && !editorReadonly"
+  }
 ]

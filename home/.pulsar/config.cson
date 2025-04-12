@@ -1,0 +1,18 @@
+"*":
+  core:
+    audioBeep: false
+    disabledPackages: [
+      "welcome"
+      "parinfer"
+    ]
+    themes: [
+      "one-light-ui"
+      "one-light-syntax"
+    ]
+  "exception-reporting":
+    userId: "521a18d0-3939-498e-aa4b-2f5077cb2f6f"
+  "lisp-paredit":
+    strict: false
+  slima:
+    autoStart: true
+    slimePath: "~/bin/slime"
