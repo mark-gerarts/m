@@ -1,99 +1,61 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
   imports =
     [
-      ./xserver
       ./hardware-configuration.nix
-      ./virtualisation.nix
-      ./security.nix
       ./device-specific-configuration.nix
     ];
 
-  # Set your time zone.
-  time.timeZone = "Europe/Brussels";
-  time.hardwareClockInLocalTime = true; # To please Windows...
+  ##
+  ## Config
+  ##
 
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
+  # Forgive me for my sins, RMS.
+  nixpkgs.config.allowUnfree = true;
+
+  boot.loader.grub = {
+    enable = true;
+    useOSProber = true;
+  };
+
+  time = {
+    timeZone = "Europe/Brussels";
+    hardwareClockInLocalTime = true; # To please Windows...
+  };
+
+  services.printing.enable = true;
 
   networking.networkmanager.enable = true;
 
-  # Explicitly enable 9000 for xdebug.
-  networking.firewall.allowedTCPPorts = [ 9000 ];
+  i18n.defaultLocale = "en_US.UTF-8";
 
   # For quick hostfile changes (lost on rebuild)
   environment.etc.hosts.mode = "0644";
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "us";
-  };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
-
-  users = {
-    users.mark = {
-      isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "docker"];
-    };
-  };
-
-  nix.trustedUsers = [ "root" "mark" ];
-
-  # Clean up old generations automatically.
-  nix.gc.automatic = true;
-  nix.gc.options = "--delete-older-than 30d";
-
-  environment.systemPackages = with pkgs; [
-    # Essential system stuff, the rest is defined in home-manager.
-    wget
-    git
-    vim
-
-    # Gnome extensions
-    gnome.gnome-tweaks
-    gnomeExtensions.appindicator
-    gnomeExtensions.hide-top-bar
-    gnomeExtensions.no-title-bar
-    gnomeExtensions.pop-shell
-    gnomeExtensions.clipboard-history
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.application-volume-mixer
-    gnome.gnome-terminal
-  ];
-
-  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
-
-  # Forgive me for my sins, RMS
-  nixpkgs.config.allowUnfree = true;
-
-  # This is required for L2TP VPN.
-  services.strongswan = {
+  # Sound.
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
     enable = true;
-    secrets = [
-      "ipsec.d/ipsec.nm-l2tp.secrets"
-    ];
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
   };
 
-  programs.ssh.startAgent = true;
+  users.users.mark = {
+    isNormalUser = true;
+    description = "Mark";
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    packages = with pkgs; [];
+  };
+  nix.settings.trusted-users = [ "root" "mark" ];
 
-  users.extraGroups.vboxusers.members = [ "mark" ];
+  nix.gc = {
+    automatic = true;
+    options = "--delete-older-than 30d";
+  };
 
-  # The journal takes up 4G by default, no need for that.
   services.journald.extraConfig = ''
     SystemMaxUse=50M
   '';
@@ -108,11 +70,153 @@
     DefaultTimeoutStopSec=10s
   '';
 
+  system.autoUpgrade = {
+    enable = true;
+    persistent = true;
+    dates = "daily";
+  };
+
+  ##
+  ## Gnome
+  ##
+
+  services.xserver = {
+    enable = true;
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+
+    # TODO: I do the following steps manually for now, can we set this up
+    # automatically?
+    # https://github.com/qwerty-fr/qwerty-fr/issues/49#issuecomment-1405254634
+    xkb = {
+      layout = "us";
+      variant = "";
+    };
+  };
+
+  environment.gnome.excludePackages = (with pkgs; [
+    gnome-tour
+    cheese
+    gnome-music
+    epiphany
+    geary
+    totem
+    tali
+    iagno
+    hitori
+    atomix
+    yelp
+    seahorse
+    gnome-contacts
+    gnome-initial-setup
+    gnome-shell-extensions
+  ]);
+
+  ##
+  ## Virtualisation
+  ##
+
+  virtualisation = {
+    docker = {
+      enable = true;
+      enableOnBoot = true;
+
+      # By default, docker uses oversized network ranges, resulting in less
+      # total available networks. We override the default address pools to use
+      # smaller ranges, thus creating more possible networks.
+      #
+      # @see https://straz.to/2021-09-08-docker-address-pools/
+      daemon.settings = {
+        default-address-pools = [
+          {
+            base = "172.17.0.0/12";
+            size = 20;
+          }
+          {
+            base = "192.168.0.0/16";
+            size = 24;
+          }
+        ];
+      };
+    };
+  };
+
+  ##
+  ## Packages
+  ##
+
+  programs = {
+    firefox.enable = true;
+    gnupg.agent.enable = true;
+    java.enable = true; # Needed for ltex
+  };
+
+  services.flatpak.enable = true;
+  systemd.services.flatpak-repo = {
+    wantedBy = [ "multi-user.target" ];
+    path = [ pkgs.flatpak ];
+    script = ''
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    '';
+  };
+
+  environment.systemPackages = with pkgs; [
+    # System essentials
+    vim
+    wget
+    git
+    delta
+
+    # Gnome stuff
+    gnome-tweaks
+    gnome-terminal
+    gnome-extension-manager
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.caffeine
+    gnomeExtensions.dash-to-dock
+
+    # CLI
+    bat
+    pass
+    pandoc
+    xclip
+    tree
+    comma
+    htop
+    ncdu
+    zip
+    jq
+
+    # Apps
+    vscode
+    chromium
+    pass
+    obsidian
+    signal-desktop
+    filelight
+    spotify
+    libreoffice
+
+    # Latex
+    hunspell
+    hunspellDicts.en_US
+    hunspellDicts.en_GB-large
+    texliveFull
+
+    # Nix tooling
+    nix-index
+    nix-ld
+
+    # Fonts
+    fira-code
+    fira-code-symbols
+  ];
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "20.09"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 }

@@ -1,49 +1,70 @@
 {
-  "php.suggest.basic": false,
-  "emmet.includeLanguages": {
-    "twig": "html"
+  "[elm]": {
+    "editor.formatOnSave": true
   },
-  "intelephense.files.associations": [
-    "*.php",
-    "*.phtml",
-    "*.inc",
-    "*.module"
-  ],
-  "files.trimTrailingWhitespace": true,
-  "files.insertFinalNewline": true,
-  "files.trimFinalNewlines": true,
-  "files.autoSave": "afterDelay",
+  "[haskell]": {
+    "editor.defaultFormatter": "sjurmillidahl.ormolu-vscode"
+  },
+  "[nix]": {
+    "editor.tabSize": 2
+  },
+  "[purescript]": {
+    "editor.defaultFormatter": "nwolverson.ide-purescript"
+  },
+  "[javascript]": {
+    "editor.tabSize": 2
+  },
+  "[fsharp]": {
+    "editor.inlayHints.enabled": "offUnlessPressed"
+  },
+  "debug.onTaskErrors": "showErrors",
+  "editor.cursorStyle": "block",
+  "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 16,
+  "editor.minimap.enabled": false,
   "editor.quickSuggestions": {
     "comments": true
   },
-  "editor.fontSize": 17,
-  "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-  "editor.renderWhitespace": "all",
-  "editor.cursorStyle": "block",
-  "editor.wordWrap": "on",
+  "editor.renderWhitespace": "none",
   "editor.rulers": [
     80
   ],
-  "languageServerHaskell.hlintOn": true,
-  "languageServerHaskell.maxNumberOfProblems": 100,
-  "languageServerHaskell.enableHIE": true,
-  "window.zoomLevel": 0,
-  "editor.fontLigatures": true,
-  "workbench.colorTheme": "Quiet Light",
-  "editor.minimap.enabled": false,
+  "editor.tabSize": 4,
+  "editor.wordWrap": "on",
+  "extensions.autoCheckUpdates": false,
+  "extensions.autoUpdate": false,
+  "extensions.ignoreRecommendations": false,
+  "files.autoSave": "afterDelay",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "haskell.serverExecutablePath": "/home/mark/.nix-profile/bin/haskell-language-server-wrapper",
+  "haskell.trace.server": "messages",
+  "latex-workshop.latex.autoBuild.run": "never",
   "latex-workshop.latex.recipe.default": "lastUsed",
   "latex-workshop.view.pdf.viewer": "tab",
+  "markdown.extension.toc.levels": "2..6",
+  "python.languageServer": "Jedi",
   "rewrap.autoWrap.enabled": true,
-  "latex-workshop.latex.autoBuild.run": "never",
+  "update.mode": "none",
+  "workbench.colorTheme": "Quiet Light",
+  "workbench.tree.indent": 24,
+  "workbench.tree.renderIndentGuides": "none",
+  "editor.guides.indentation": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "aws.telemetry": false,
+  "python.formatting.provider": "black",
   "editor.formatOnSave": true,
-  "[elm]": {
-        "editor.formatOnSave": true
-    },
-    "files.associations": {
-      "*.icl": "clean"
-    },
-    "extensions.ignoreRecommendations": false,
-    "[haskell]": {
-      "editor.defaultFormatter": "sjurmillidahl.ormolu-vscode"
-    }
+  "eslint.format.enable": true,
+  "FSharp.inlayHints.parameterNames": false,
+  "FSharp.inlayHints.disableLongTooltip": true,
+  "FSharp.inlayHints.typeAnnotations": false,
+  "FSharp.lineLens.enabled": "never",
+  "FSharp.pipelineHints.enabled": false,
+  "markdown.marp.enableHtml": true,
+  "workbench.editor.enablePreview": false,
+  "FSharp.suggestGitignore": false,
+  "ltex.java.path": "/nix/store/g692szywcdf9wh3g6xpxyxnm6nd6hy7p-openjdk-21.0.5+11/lib/openjdk",
+  "latex-workshop.formatting.latex": "latexindent"
 }

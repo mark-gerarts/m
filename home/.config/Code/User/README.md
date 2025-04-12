@@ -5,7 +5,7 @@
 Settings and keybindings are stored in `settings.json` and `keybindings.json`
 respectively. On a fresh install just copy these.
 
-```
+```bash
 $ mkdir -p ~/.config/Code/User
 $ cp .config/Code/User/* ~/.config/Code/User/
 ```
