@@ -148,6 +148,7 @@
   programs = {
     firefox.enable = true;
     gnupg.agent.enable = true;
+    java.enable = true; # Needed for ltex
   };
 
   services.flatpak.enable = true;
@@ -183,17 +184,17 @@
     vscode
     chromium
     pass
-    texliveFull
     obsidian
     signal-desktop
     filelight
     spotify
     libreoffice
 
-    # Spellchecking in vscode+latex
+    # Latex
     hunspell
     hunspellDicts.en_US
     hunspellDicts.en_GB-large
+    texliveFull
 
     # Nix tooling
     nix-index
