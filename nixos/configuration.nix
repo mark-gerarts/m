@@ -188,7 +188,7 @@
     jq
 
     # Apps
-    vscode
+    vscode-fhs
     chromium
     pass
     obsidian
