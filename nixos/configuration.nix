@@ -210,6 +210,9 @@
     # Fonts
     fira-code
     fira-code-symbols
+
+    # Dev
+    python3Full
   ];
 
   # This value determines the NixOS release from which the default
