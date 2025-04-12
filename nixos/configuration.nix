@@ -159,19 +159,49 @@
     git
     delta
 
-    # Dev
-    vscode
-    gnome-terminal
-
-    # Fancy stuff
-    bat
-
-    # Gnome extensions
+    # Gnome stuff
     gnome-tweaks
+    gnome-terminal
     gnome-extension-manager
     gnomeExtensions.blur-my-shell
     gnomeExtensions.caffeine
     gnomeExtensions.dash-to-dock
+
+    # CLI
+    bat
+    pass
+    pandoc
+    xclip
+    tree
+    comma
+    htop
+    ncdu
+    zip
+    jq
+
+    # Apps
+    vscode
+    chromium
+    pass
+    texliveFull
+    obsidian
+    signal-desktop
+    filelight
+    spotify
+    libreoffice
+
+    # Spellchecking in vscode+latex
+    hunspell
+    hunspellDicts.en_US
+    hunspellDicts.en_GB-large
+
+    # Nix tooling
+    nix-index
+    nix-ld
+
+    # Fonts
+    fira-code
+    fira-code-symbols
   ];
 
   # This value determines the NixOS release from which the default
