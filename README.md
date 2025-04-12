@@ -56,11 +56,22 @@ Additional languages are provided in the hunspellDicts.\* packages.
 
 ## Gnome config
 
-@todo: check if we can put this in nix config as well (dconf)
+Some things that are not poured in a script yet.
 
-- Caps lock -> ctrl
-- Enable/configure extensions in tweak tool
-- Shortcut for terminal
-- Shortcut for win+e (launchers -> home folder)
-- Set nautilus to use list view, folders before files
-- Terminal settings (tab alt+l/r, color, font size, ...)
+- Gnome terminal
+  - Profile > color scheme; disable limit scrollback
+  - Font size
+  - Shortcuts: Alt+Left/Right for Previous/Next tab
+- Settings
+  - Multitasking
+    - Disable hot corner
+    - Enable Active screen edges
+  - Keyboard
+    - Change input source to qwerty-fr ([steps](https://github.com/qwerty-fr/qwerty-fr/issues/49#issuecomment-1405254634))
+    - Shortcuts
+      - Win+E Home folder
+      - Ctr-Alt-T gnome-terminal custom shortcut
+      - Alt+Tab Switch windows
+- Gnome tweaks
+  - Keyboard > Additional Layout Options > Caps Lock as Ctrl
+  - Windows > Titlebar Buttons: Maximize and Minimize

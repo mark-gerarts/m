@@ -109,6 +109,7 @@
     seahorse
     gnome-contacts
     gnome-initial-setup
+    gnome-shell-extensions
   ]);
 
   ##
@@ -162,8 +163,12 @@
     vscode
     gnome-terminal
 
+    # Fancy stuff
+    bat
+
     # Gnome extensions
     gnome-tweaks
+    gnome-extension-manager
     gnomeExtensions.blur-my-shell
     gnomeExtensions.caffeine
     gnomeExtensions.dash-to-dock
