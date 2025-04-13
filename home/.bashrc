@@ -40,6 +40,11 @@ alias prettyjson="python3 -m json.tool"
 
 alias diff="diff --color"
 
+alias ns="nix-shell"
+
+# Fix code asking password on startup
+alias code="code --password-store=basic"
+
 # Node
 alias node-repl="noderepl"
 noderepl() {

@@ -62,6 +62,11 @@ Some things that are not poured in a script yet.
       - Win+E Home folder
       - Ctr-Alt-T gnome-terminal custom shortcut
       - Alt+Tab Switch windows
+  - Apps > Default apps (e.g. firefox, image viewer, ...)
 - Gnome tweaks
   - Keyboard > Additional Layout Options > Caps Lock as Ctrl
   - Windows > Titlebar Buttons: Maximize and Minimize
+- Dash-to-dock
+  - Icon size 32
+  - Show trash can: disabled
+  - Window counter indicators: dots
