@@ -81,6 +81,22 @@
     dates = "daily";
   };
 
+  # Allow poweroff/reboot without password.
+  security.sudo.extraRules = [{
+    runAs = "root";
+    groups = [ "wheel" ];
+    commands = [
+      {
+        command = "/run/current-system/sw/bin/reboot";
+        options = [ "NOPASSWD" ];
+      }
+      {
+        command = "/run/current-system/sw/bin/poweroff";
+        options = [ "NOPASSWD" ];
+      }
+    ];
+  }];
+
   ##
   ## Gnome
   ##
@@ -179,6 +195,7 @@
     gnomeExtensions.blur-my-shell
     gnomeExtensions.caffeine
     gnomeExtensions.dash-to-dock
+    gnomeExtensions.runcat
 
     # CLI
     bat
