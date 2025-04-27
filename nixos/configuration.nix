@@ -218,6 +218,7 @@
     filelight
     spotify
     libreoffice
+    jabref
 
     # Latex
     hunspell
@@ -235,6 +236,7 @@
 
     # Dev
     python3Full
+    duckdb
   ];
 
   # This value determines the NixOS release from which the default

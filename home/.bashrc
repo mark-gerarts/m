@@ -29,7 +29,6 @@ alias poweroff="sudo poweroff"
 alias reboot="sudo reboot"
 
 alias cclip="xclip -selection clipboard"
-alias bat="batcat"
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 
 alias sbcl="rlwrap sbcl"
