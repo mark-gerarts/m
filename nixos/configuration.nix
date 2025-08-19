@@ -39,7 +39,7 @@
   environment.etc.hosts.mode = "0644";
 
   # Sound.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -215,7 +215,7 @@
     pass
     obsidian
     signal-desktop
-    filelight
+    kdePackages.filelight
     spotify
     libreoffice
     jabref
@@ -237,6 +237,7 @@
     # Dev
     python3Full
     duckdb
+    distrobox
   ];
 
   # This value determines the NixOS release from which the default
