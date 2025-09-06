@@ -187,6 +187,7 @@
     wget
     git
     delta
+    inotify-tools
 
     # Gnome stuff
     gnome-tweaks
@@ -238,6 +239,7 @@
     python3Full
     duckdb
     distrobox
+    dotnet-sdk_9
   ];
 
   # This value determines the NixOS release from which the default
