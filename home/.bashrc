@@ -99,10 +99,14 @@ shopt -s histappend
 PROMPT_COMMAND="$PROMPT_COMMAND;history -a;"
 
 # Allow bookmarking directories:
-# $ mark @name
+# $ mark @name /path/to/dir
+# $ mark @name # Defaults to $PWD
 # $ cd @name
 # $ cd @<tab> # List all available bookmarks
 # Credit: https://news.ycombinator.com/item?id=35122780
 mkdir -p ~/.marks/
 export CDPATH=.:~/.marks/
-function mark { ln -sr "$(pwd)" ~/.marks/"$1"; }
+mark() {
+    local target="${2:-$(pwd)}"
+    ln -s "$target" "$HOME/.marks/$1"
+}
