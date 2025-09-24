@@ -34,6 +34,9 @@ create_symlinks() {
     for file in "${files[@]}"; do
         ln -sf "$SCRIPT_DIR/$file" "$HOME/$file"
     done
+
+    # Also add .profile for some other distros
+    ln -sf "$SCRIPT_DIR/.bashrc" "$HOME/.profile"
 }
 
 setup_vscode() {
