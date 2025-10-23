@@ -30,6 +30,8 @@ create_symlinks() {
         ".local/bin/copy"
         ".local/bin/paste"
         ".local/bin/spp"
+        ".local/bin/mksh"
+        ".local/bin/bs"
     )
 
     for file in "${files[@]}"; do
