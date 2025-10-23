@@ -3,13 +3,11 @@
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 create_symlinks() {
-    [ -d "$HOME/.scripts" ] && rm -r "$HOME/.scripts"
-    ln -sf "$SCRIPT_DIR/.scripts" "$HOME/.scripts"
-
     dirs=(
         ".ssh"
         ".config/Code/User"
         ".pulsar"
+        ".local/bin"
     )
 
     for dir in "${dirs[@]}"; do
@@ -29,6 +27,9 @@ create_symlinks() {
         ".sbclrc"
         ".pulsar/config.cson"
         ".pulsar/keymap.cson"
+        ".local/bin/copy"
+        ".local/bin/paste"
+        ".local/bin/spp"
     )
 
     for file in "${files[@]}"; do
