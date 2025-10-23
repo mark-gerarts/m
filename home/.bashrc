@@ -23,7 +23,6 @@ alias code.="code ."
 alias glg="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(blue)- [%an]%C(reset)%C(bold yellow)%d%C(reset)'"
 alias gls="glg"
 alias glga="git log --branches --remotes --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(blue)- [%an]%C(reset)%C(bold yellow)%d%C(reset)'"
-alias spp="$HOME/.scripts/spp.sh"
 
 alias poweroff="sudo poweroff"
 alias reboot="sudo reboot"
@@ -49,6 +48,18 @@ alias node-repl="noderepl"
 noderepl() {
     FILE_CONTENTS="$(< "$1" )"
     node -i -e "$FILE_CONTENTS"
+}
+
+# mkdir + cd
+mkcd() {
+    mkdir -p "$1" && cd "$1"
+}
+
+# Make a temporary directory to test some stuff in. Popd to return.
+tempdir () {
+  temp_dir="$(mktemp -d)"
+  chmod -R 0700 "$temp_dir"
+  pushd "$temp_dir" > /dev/null
 }
 
 # Android
