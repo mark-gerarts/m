@@ -123,5 +123,10 @@
     "key": "alt+backspace",
     "command": "deleteWordLeft",
     "when": "editorTextFocus && !config.emacs-mcx.useMetaPrefixMacCmd && !editorReadonly"
+  },
+  {
+    "key": "ctrl+alt+shift+down",
+    "command": "cursorColumnSelectDown",
+    "when": "textInputFocus"
   }
 ]
