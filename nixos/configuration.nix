@@ -87,13 +87,16 @@
   }];
 
   ##
-  ## Gnome
+  ## DE
   ##
+
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = "mark";
+  };
 
   services.xserver = {
     enable = true;
-    #displayManager.gdm.enable = true;
-    #desktopManager.gnome.enable = true;
     displayManager.lightdm.enable = true;
     desktopManager.xfce.enable = true;
 
@@ -193,6 +196,9 @@
     #gnomeExtensions.caffeine
     #gnomeExtensions.dash-to-dock
     #gnomeExtensions.runcat
+
+    # xfce stuff
+    xfce.xfce4-whiskermenu-plugin
 
     # CLI
     bat
