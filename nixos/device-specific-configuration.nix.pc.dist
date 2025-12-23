@@ -9,7 +9,11 @@
   #
   # E.g. on my PC I would run `ln -s device-specific-configuration.nix.pc.dist device-specific-configuration.nix`
 
-  boot.loader.grub.device = "/dev/nvme0n1";
+  boot.loader.grub = {
+    enable = true;
+    useOSProber = true;
+    device = "/dev/nvme0n1";
+  };
   networking.hostName = "whirlpool";
 
   # Autologin.

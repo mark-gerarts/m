@@ -7,17 +7,8 @@
       ./device-specific-configuration.nix
     ];
 
-  ##
-  ## Config
-  ##
-
   # Forgive me for my sins, RMS.
   nixpkgs.config.allowUnfree = true;
-
-  boot.loader.grub = {
-    enable = true;
-    useOSProber = true;
-  };
 
   time = {
     timeZone = "Europe/Brussels";
@@ -71,9 +62,7 @@
   systemd.services.docker.serviceConfig.KillMode = "mixed";
 
   # Also, 90s is overkill anyways.
-  systemd.extraConfig = ''
-    DefaultTimeoutStopSec=10s
-  '';
+  systemd.settings.Manager = { DefaultTimeoutStopSec = "10s"; };
 
   system.autoUpgrade = {
     enable = true;
@@ -103,8 +92,10 @@
 
   services.xserver = {
     enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
+    #displayManager.gdm.enable = true;
+    #desktopManager.gnome.enable = true;
+    displayManager.lightdm.enable = true;
+    desktopManager.xfce.enable = true;
 
     # TODO: I do the following steps manually for now, can we set this up
     # automatically?
@@ -115,23 +106,23 @@
     };
   };
 
-  environment.gnome.excludePackages = (with pkgs; [
-    gnome-tour
-    cheese
-    gnome-music
-    epiphany
-    geary
-    totem
-    tali
-    iagno
-    hitori
-    atomix
-    yelp
-    seahorse
-    gnome-contacts
-    gnome-initial-setup
-    gnome-shell-extensions
-  ]);
+  #environment.gnome.excludePackages = (with pkgs; [
+  #  gnome-tour
+  #  cheese
+  #  gnome-music
+  #  epiphany
+  #  geary
+  #  totem
+  #  tali
+  #  iagno
+  #  hitori
+  #  atomix
+  #  yelp
+  #  seahorse
+  #  gnome-contacts
+  #  gnome-initial-setup
+  #  gnome-shell-extensions
+  #]);
 
   ##
   ## Virtualisation
@@ -173,8 +164,13 @@
   };
 
   services.flatpak.enable = true;
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
   systemd.services.flatpak-repo = {
     wantedBy = [ "multi-user.target" ];
+    requires = [ "network-online.target" ];
     path = [ pkgs.flatpak ];
     script = ''
       flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -190,13 +186,13 @@
     inotify-tools
 
     # Gnome stuff
-    gnome-tweaks
-    gnome-terminal
-    gnome-extension-manager
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.caffeine
-    gnomeExtensions.dash-to-dock
-    gnomeExtensions.runcat
+    #gnome-tweaks
+    #gnome-terminal
+    #gnome-extension-manager
+    #gnomeExtensions.blur-my-shell
+    #gnomeExtensions.caffeine
+    #gnomeExtensions.dash-to-dock
+    #gnomeExtensions.runcat
 
     # CLI
     bat
@@ -236,7 +232,7 @@
     fira-code-symbols
 
     # Dev
-    python3Full
+    python315
     duckdb
     distrobox
     dotnet-sdk_9
@@ -248,5 +244,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 }

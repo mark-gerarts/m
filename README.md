@@ -70,3 +70,11 @@ Some things that are not poured in a script yet.
   - Icon size 32
   - Show trash can: disabled
   - Window counter indicators: dots
+
+## TODO
+
+WIP to move to xfce:
+
+- Look at sensible defaults https://gist.github.com/nat-418/1101881371c9a7b419ba5f944a7118b0
+- Set up autologin (ly instaed of lightdm?)
+- Export xfce config
