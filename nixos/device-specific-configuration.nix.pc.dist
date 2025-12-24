@@ -9,16 +9,10 @@
   #
   # E.g. on my PC I would run `ln -s device-specific-configuration.nix.pc.dist device-specific-configuration.nix`
 
-  boot.loader.grub.device = "/dev/nvme0n1";
-  networking.hostName = "whirlpool";
-
-  # Autologin.
-  services.displayManager.autoLogin = {
+  boot.loader.grub = {
     enable = true;
-    user = "mark";
+    useOSProber = true;
+    device = "/dev/nvme0n1";
   };
-  # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
-
+  networking.hostName = "whirlpool";
 }
