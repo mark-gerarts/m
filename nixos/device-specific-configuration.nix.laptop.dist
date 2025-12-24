@@ -3,7 +3,6 @@
 {
   imports = [ "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/lenovo/ideapad/z510" ];
 
-  #networking.wireless.enable = true;
   networking.hostName = "spiral";
 
   # Touchpad (should be enabled by default though).
@@ -14,4 +13,7 @@
   boot.loader.grub.device = "nodev";
 
   boot.initrd.luks.devices."luks-4a9dd098-2cc1-4336-b647-834dfaac4eee".device = "/dev/disk/by-uuid/4a9dd098-2cc1-4336-b647-834dfaac4eee";
+
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 }

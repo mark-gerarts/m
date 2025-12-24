@@ -67,7 +67,7 @@
   system.autoUpgrade = {
     enable = true;
     persistent = true;
-    dates = "daily";
+    dates = "weekly";
   };
 
   # Allow poweroff/reboot without password.
@@ -86,10 +86,6 @@
     ];
   }];
 
-  ##
-  ## DE
-  ##
-
   services.displayManager.autoLogin = {
     enable = true;
     user = "mark";
@@ -97,6 +93,7 @@
 
   services.xserver = {
     enable = true;
+    # TODO: move to ly
     displayManager.lightdm.enable = true;
     desktopManager.xfce.enable = true;
 
@@ -108,28 +105,6 @@
       variant = "";
     };
   };
-
-  #environment.gnome.excludePackages = (with pkgs; [
-  #  gnome-tour
-  #  cheese
-  #  gnome-music
-  #  epiphany
-  #  geary
-  #  totem
-  #  tali
-  #  iagno
-  #  hitori
-  #  atomix
-  #  yelp
-  #  seahorse
-  #  gnome-contacts
-  #  gnome-initial-setup
-  #  gnome-shell-extensions
-  #]);
-
-  ##
-  ## Virtualisation
-  ##
 
   virtualisation = {
     docker = {
@@ -188,17 +163,14 @@
     delta
     inotify-tools
 
-    # Gnome stuff
-    #gnome-tweaks
-    #gnome-terminal
-    #gnome-extension-manager
-    #gnomeExtensions.blur-my-shell
-    #gnomeExtensions.caffeine
-    #gnomeExtensions.dash-to-dock
-    #gnomeExtensions.runcat
-
-    # xfce stuff
+    # xfce/de stuff
     xfce.xfce4-whiskermenu-plugin
+    xcape # To fix whiskermenu meta keybind (https://unix.stackexchange.com/a/447801).
+    pavucontrol
+    xcolor
+    xfce.xfce4-clipman-plugin
+    xfce.xfdashboard
+
 
     # CLI
     bat
@@ -222,6 +194,8 @@
     spotify
     libreoffice
     jabref
+    evince
+    gnome-disk-utility
 
     # Latex
     hunspell
