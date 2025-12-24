@@ -93,7 +93,7 @@
 
   services.xserver = {
     enable = true;
-    # TODO: move to ly
+    # TODO: move to ly once autologin is supported.
     displayManager.lightdm.enable = true;
     desktopManager.xfce.enable = true;
 
