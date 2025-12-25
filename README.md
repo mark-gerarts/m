@@ -1,9 +1,10 @@
-# Nix / NixOS configuration
+# Desktop Configurations
 
-A very much WIP set of configuration files for my Nix/NixOS setup. The `/m`
-setup is inspired by [burke/b](https://github.com/burke/b).
+Configuration files for my desktop. The `/m` setup is inspired by
+[burke/b](https://github.com/burke/b). I use NixOS for my primary devices, and
+Alpine for low-specced machines.
 
-## Installation
+## NixOS
 
 First, do a regular (minimal) install of NixOS. Then clone this repository into
 `/m` and symlink all config from here. All the following stuff could be just a
@@ -39,6 +40,16 @@ $ nixos-rebuild switch
 ```
 
 Set up dotfiles (creates symlinks):
+
+```bash
+$ /m/home/setup.sh
+```
+
+## Alpine
+
+TODO: installation/initial setup.
+
+Setting up dotfiles is identical to NixOS:
 
 ```bash
 $ /m/home/setup.sh

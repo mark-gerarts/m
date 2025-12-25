@@ -8,6 +8,7 @@ create_symlinks() {
         ".config/Code/User"
         ".config/bat"
         ".config/autostart"
+        ".config/xfce4/panel"
         ".pulsar"
         ".local/bin"
     )
@@ -43,6 +44,9 @@ create_symlinks() {
 
     # Also add .profile for some other distros
     ln -sf "$SCRIPT_DIR/.bashrc" "$HOME/.profile"
+
+    # For xfce's panel settings, we just copy instead (symlinking borks).
+    cp -r .config/xfce4/panel ~/.config/xfce4
 }
 
 setup_vscode() {
