@@ -6,6 +6,8 @@ create_symlinks() {
     dirs=(
         ".ssh"
         ".config/Code/User"
+        ".config/bat"
+        ".config/autostart"
         ".pulsar"
         ".local/bin"
     )
@@ -20,7 +22,8 @@ create_symlinks() {
         ".ssh/config"
         ".config/Code/User/settings.json"
         ".config/Code/User/keybindings.json"
-        ".config/bat"
+        ".config/bat/config"
+        ".config/autostart/xcape.desktop"
         ".gitconfig"
         ".pylintrc"
         ".vimrc"
@@ -55,5 +58,15 @@ setup_vscode() {
     fi
 }
 
+setup_xfce() {
+    if ! command -v xfconf-query >/dev/null 2>&1
+    then
+        echo "xfconf-query is not installed, skipping xfce4 setup"
+    else
+        ./xfconf.sh
+    fi
+}
+
 create_symlinks
 setup_vscode
+setup_xfce
