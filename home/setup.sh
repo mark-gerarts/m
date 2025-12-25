@@ -3,6 +3,8 @@
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 create_symlinks() {
+    echo "Symlinking dotfiles..."
+
     dirs=(
         ".ssh"
         ".config/Code/User"
@@ -51,6 +53,8 @@ create_symlinks() {
 
 setup_vscode() {
     if code -v &> /dev/null; then
+        echo "Syncing VSCode extensions..."
+
         # Get any extensions that are part of the repo but not yet installed, and install them.
         INSTALLED_EXTENSIONS=$(code --list-extensions | sort)
         ALL_EXTENSIONS=$(sort "$SCRIPT_DIR/.config/Code/User/extensions.list")
@@ -59,6 +63,8 @@ setup_vscode() {
 
         # Update the extensions list if there are any extensions installed but not yet part of the repo.
         code --list-extensions > "$SCRIPT_DIR/.config/Code/User/extensions.list"
+    else
+        echo "VSCode is not installed, skipping."
     fi
 }
 
@@ -67,6 +73,7 @@ setup_xfce() {
     then
         echo "xfconf-query is not installed, skipping xfce4 setup"
     else
+        echo "Configuring xfce..."
         "$SCRIPT_DIR/xfconf.sh"
     fi
 }
@@ -74,3 +81,5 @@ setup_xfce() {
 create_symlinks
 setup_vscode
 setup_xfce
+
+echo "Done!"
