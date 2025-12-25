@@ -46,7 +46,7 @@ create_symlinks() {
     ln -sf "$SCRIPT_DIR/.bashrc" "$HOME/.profile"
 
     # For xfce's panel settings, we just copy instead (symlinking borks).
-    cp -r .config/xfce4/panel ~/.config/xfce4
+    cp -r "$SCRIPT_DIR/.config/xfce4/panel" "$HOME/.config/xfce4"
 }
 
 setup_vscode() {
@@ -67,7 +67,7 @@ setup_xfce() {
     then
         echo "xfconf-query is not installed, skipping xfce4 setup"
     else
-        ./xfconf.sh
+        "$SCRIPT_DIR/xfconf.sh"
     fi
 }
 
