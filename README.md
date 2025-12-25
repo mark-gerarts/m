@@ -43,38 +43,3 @@ Set up dotfiles (creates symlinks):
 ```bash
 $ /m/home/setup.sh
 ```
-
-## Gnome config
-
-Some things that are not poured in a script yet.
-
-- Gnome terminal
-  - Profile > color scheme; disable limit scrollback
-  - Font size
-  - Shortcuts: Alt+Left/Right for Previous/Next tab
-- Settings
-  - Multitasking
-    - Disable hot corner
-    - Enable Active screen edges
-  - Keyboard
-    - Change input source to qwerty-fr ([steps](https://github.com/qwerty-fr/qwerty-fr/issues/49#issuecomment-1405254634))
-    - Shortcuts
-      - Win+E Home folder
-      - Ctr-Alt-T gnome-terminal custom shortcut
-      - Alt+Tab Switch windows
-  - Apps > Default apps (e.g. firefox, image viewer, ...)
-- Gnome tweaks
-  - Keyboard > Additional Layout Options > Caps Lock as Ctrl
-  - Windows > Titlebar Buttons: Maximize and Minimize
-- Dash-to-dock
-  - Icon size 32
-  - Show trash can: disabled
-  - Window counter indicators: dots
-
-## TODO
-
-WIP to move to xfce:
-
-- Look at sensible defaults https://gist.github.com/nat-418/1101881371c9a7b419ba5f944a7118b0
-- Set up autologin (ly instaed of lightdm?)
-- Export xfce config

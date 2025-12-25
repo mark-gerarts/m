@@ -65,7 +65,7 @@
   "markdown.marp.enableHtml": true,
   "workbench.editor.enablePreview": false,
   "FSharp.suggestGitignore": false,
-  "ltex.java.path": "/nix/store/g692szywcdf9wh3g6xpxyxnm6nd6hy7p-openjdk-21.0.5+11/lib/openjdk",
+  "ltex.java.path": "/run/current-system/sw/lib/openjdk",
   "latex-workshop.formatting.latex": "latexindent",
   "git.openRepositoryInParentFolders": "never",
   "chat.disableAIFeatures": true
