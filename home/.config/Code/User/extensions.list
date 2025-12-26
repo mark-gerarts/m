@@ -9,10 +9,8 @@ gruntfuggly.todo-tree
 ionide.ionide-fsharp
 james-yu.latex-workshop
 jnoortheen.nix-ide
-marp-team.marp-vscode
 ms-azuretools.vscode-containers
 ms-azuretools.vscode-docker
-ms-dotnettools.csharp
 ms-dotnettools.vscode-dotnet-runtime
 ms-python.debugpy
 ms-python.isort
@@ -28,5 +26,4 @@ ms-toolsai.vscode-jupyter-slideshow
 timonwong.shellcheck
 tuttieee.emacs-mcx
 valentjn.vscode-ltex
-vue.volar
 yzhang.markdown-all-in-one
