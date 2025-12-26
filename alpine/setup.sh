@@ -17,8 +17,14 @@ apk list xfce4 --installed | grep installed > /dev/null || setup-desktop xfce
 # Set up APK and install packages.
 # WORLD is overwritten on apk operations, so a symlink won't work. This
 # means that this file has to be kept up-to-date manually.
+cat "$SCRIPT_DIR"/etc/apk/world /etc/apk/world | sort | uniq > "$SCRIPT_DIR"/etc/apk/world
 cp "$SCRIPT_DIR/etc/apk/world" /etc/apk/world
 ln -sf "$SCRIPT_DIR/etc/apk/repositories" /etc/apk/repositories
 apk add
 
-echo "TODO"
+# Don't make networking blocking on boot.
+sed -i 's/iface wlan0 inet dhcp/# iface wlan0 inet dhcp/' /etc/network/interfaces
+sed -i 's/iface eth0 inet dhcp/# iface eth0 inet dhcp/' /etc/network/interfaces
+rc-update add dhcpcd default
+
+rc-update add bluetooth default
