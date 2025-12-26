@@ -7,6 +7,10 @@ SCRIPT_DIR=/m/alpine
 # Disable terminal bleep in tty.
 grep -q "blacklist pcspkr" /etc/modprobe.d/blacklist.conf || echo "blacklist pcspkr" >> /etc/modprobe.d/blacklist.conf
 
+# Fix for loss of networking after xfce install
+# See https://gitlab.alpinelinux.org/alpine/aports/-/issues/9079
+ln -sf "$SCRIPT_DIR"/etc/conf.d/networking /etc/conf.d/networking
+
 # Install xfce4 if needed.
 apk list xfce4 --installed | grep installed > /dev/null || setup-desktop xfce
 
