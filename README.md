@@ -47,7 +47,24 @@ $ /m/home/setup.sh
 
 ## Alpine
 
-TODO: installation/initial setup.
+TODO: further document installation/initial setup.
+
+Install Alpine using `setup-alpine` using `cryptsys` for the disk. Reboot into the root user
+and get SSH keys onto the device.
+
+```bash
+# mkdir /m
+# chown mark:mark /m
+# su mark
+$ cd /m
+$ git clone git@github.com/mark-gerarts/m.git .
+```
+
+Set up the system:
+
+```bash
+doas /m/alpine/setup.sh
+```
 
 Setting up dotfiles is identical to NixOS:
 
