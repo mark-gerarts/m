@@ -84,6 +84,8 @@ xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>Left" --create
 xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>Right" --create --type string --set "tile_right_key"
 xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>Up" --create --type string --set "maximize_window_key"
 
+xfconf-query -c pointers -p /SynPS2_Synaptics_TouchPad/ReverseScrolling --create --type bool --set "true"
+
 # Panel configuration is a bit messy...
 xfconf-query -c xfce4-panel -p /plugins/plugin-1 --create --type string --set "power-manager-plugin"
 xfconf-query -c xfce4-panel -p /plugins/plugin-11 --create --type string --set "showdesktop"
