@@ -53,6 +53,7 @@ Install Alpine using `setup-alpine` using `cryptsys` for the disk. Reboot into t
 and get SSH keys onto the device.
 
 ```bash
+# apk add git
 # mkdir /m
 # chown mark:mark /m
 # su mark
