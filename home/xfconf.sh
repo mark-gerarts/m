@@ -84,12 +84,7 @@ xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>Left" --create
 xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>Right" --create --type string --set "tile_right_key"
 xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>Up" --create --type string --set "maximize_window_key"
 
-# Terminal shortcuts are not part of xfconf yet, unfortunately.
-sed -i 's|; (gtk_accel_path "<Actions>/terminal-window/next-tab" "")|(gtk_accel_path "<Actions>/terminal-window/next-tab" "<Alt>Right"))|' ~/.config/xfce4/terminal/accels.scm
-sed -i 's|; (gtk_accel_path "<Actions>/terminal-window/prev-tab" "")|(gtk_accel_path "<Actions>/terminal-window/prev-tab" "<Alt>Left"))|' ~/.config/xfce4/terminal/accels.scm
-
 # Panel configuration is a bit messy...
-
 xfconf-query -c xfce4-panel -p /plugins/plugin-1 --create --type string --set "power-manager-plugin"
 xfconf-query -c xfce4-panel -p /plugins/plugin-11 --create --type string --set "showdesktop"
 xfconf-query -c xfce4-panel -p /plugins/plugin-12 --create --type string --set "separator"

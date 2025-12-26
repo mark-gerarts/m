@@ -11,6 +11,7 @@ create_symlinks() {
         ".config/bat"
         ".config/autostart"
         ".config/xfce4/panel"
+        ".config/xfce4/terminal"
         ".pulsar"
         ".local/bin"
     )
@@ -27,6 +28,7 @@ create_symlinks() {
         ".config/Code/User/keybindings.json"
         ".config/bat/config"
         ".config/autostart/xcape.desktop"
+        ".config/xfce4/terminal/accels.scm"
         ".gitconfig"
         ".pylintrc"
         ".vimrc"
@@ -47,7 +49,7 @@ create_symlinks() {
     # Also add .profile for some other distros
     ln -sf "$SCRIPT_DIR/.bashrc" "$HOME/.profile"
 
-    # For xfce's panel settings, we just copy instead (symlinking borks).
+    # For xfce's settings, we just copy instead (symlinking borks).
     cp -r "$SCRIPT_DIR/.config/xfce4/panel" "$HOME/.config/xfce4"
 }
 
