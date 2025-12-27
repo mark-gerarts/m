@@ -53,7 +53,6 @@ pipewire-pulse
 pipewire-tools
 polkit-elogind
 python3
-rofi
 shellcheck
 tar
 texlive-full

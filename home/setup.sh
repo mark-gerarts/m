@@ -12,7 +12,6 @@ create_symlinks() {
         ".config/autostart"
         ".config/xfce4/panel"
         ".config/xfce4/terminal"
-        ".config/rofi"
         ".pulsar"
         ".local/bin"
     )
@@ -30,7 +29,6 @@ create_symlinks() {
         ".config/bat/config"
         ".config/autostart/xcape.desktop"
         ".config/xfce4/terminal/accels.scm"
-        ".config/rofi/config.rasi"
         ".gitconfig"
         ".pylintrc"
         ".vimrc"

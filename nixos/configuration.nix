@@ -179,7 +179,6 @@
 
     # xfce/de stuff
     qwerty-fr
-    rofi
     xfce.xfce4-whiskermenu-plugin
     xcape # To fix whiskermenu meta keybind (https://unix.stackexchange.com/a/447801).
     pavucontrol
