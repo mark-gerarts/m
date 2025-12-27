@@ -28,3 +28,5 @@ sed -i 's/iface eth0 inet dhcp/# iface eth0 inet dhcp/' /etc/network/interfaces
 rc-update add dhcpcd default
 
 rc-update add bluetooth default
+
+# TODO: install qwerty-fr and/or package it

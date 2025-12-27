@@ -1,11 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./device-specific-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ./device-specific-configuration.nix
+  ];
 
   # Forgive me for my sins, RMS.
   nixpkgs.config.allowUnfree = true;
@@ -42,10 +41,17 @@
   users.users.mark = {
     isNormalUser = true;
     description = "Mark";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
-    packages = with pkgs; [];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
+    packages = with pkgs; [ ];
   };
-  nix.settings.trusted-users = [ "root" "mark" ];
+  nix.settings.trusted-users = [
+    "root"
+    "mark"
+  ];
 
   nix.gc = {
     automatic = true;
@@ -62,7 +68,9 @@
   systemd.services.docker.serviceConfig.KillMode = "mixed";
 
   # Also, 90s is overkill anyways.
-  systemd.settings.Manager = { DefaultTimeoutStopSec = "10s"; };
+  systemd.settings.Manager = {
+    DefaultTimeoutStopSec = "10s";
+  };
 
   system.autoUpgrade = {
     enable = true;
@@ -71,20 +79,22 @@
   };
 
   # Allow poweroff/reboot without password.
-  security.sudo.extraRules = [{
-    runAs = "root";
-    groups = [ "wheel" ];
-    commands = [
-      {
-        command = "/run/current-system/sw/bin/reboot";
-        options = [ "NOPASSWD" ];
-      }
-      {
-        command = "/run/current-system/sw/bin/poweroff";
-        options = [ "NOPASSWD" ];
-      }
-    ];
-  }];
+  security.sudo.extraRules = [
+    {
+      runAs = "root";
+      groups = [ "wheel" ];
+      commands = [
+        {
+          command = "/run/current-system/sw/bin/reboot";
+          options = [ "NOPASSWD" ];
+        }
+        {
+          command = "/run/current-system/sw/bin/poweroff";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
+  ];
 
   services.displayManager.autoLogin = {
     enable = true;
@@ -97,12 +107,16 @@
     displayManager.lightdm.enable = true;
     desktopManager.xfce.enable = true;
 
-    # TODO: I do the following steps manually for now, can we set this up
-    # automatically?
-    # https://github.com/qwerty-fr/qwerty-fr/issues/49#issuecomment-1405254634
+    # https://github.com/NixOS/nixpkgs/issues/372753#issuecomment-3148277801
     xkb = {
-      layout = "us";
-      variant = "";
+      layout = "us_qwerty-fr";
+      extraLayouts = {
+        us_qwerty-fr = {
+          description = "US QWERTY with French accents";
+          languages = [ "eng" ];
+          symbolsFile = "${pkgs.qwerty-fr}/share/X11/xkb/symbols/us_qwerty-fr";
+        };
+      };
     };
   };
 
@@ -164,13 +178,14 @@
     inotify-tools
 
     # xfce/de stuff
+    qwerty-fr
+    rofi
     xfce.xfce4-whiskermenu-plugin
     xcape # To fix whiskermenu meta keybind (https://unix.stackexchange.com/a/447801).
     pavucontrol
     xcolor
     xfce.xfce4-clipman-plugin
     xfce.xfdashboard
-
 
     # CLI
     bat
@@ -206,6 +221,7 @@
     # Nix tooling
     nix-index
     nix-ld
+    nixfmt
 
     # Fonts
     fira-code
