@@ -85,6 +85,7 @@ xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>Right" --creat
 xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>Up" --create --type string --set "maximize_window_key"
 xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>d" --create --type string --set "show_desktop_key"
 
+xfconf-query -c xsettings -p /Net/IconThemeName --create --type string --set "Rodent"
 
 xfconf-query -c pointers -p /SynPS2_Synaptics_TouchPad/ReverseScrolling --create --type bool --set "true"
 
