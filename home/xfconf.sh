@@ -83,6 +83,8 @@ xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>Down" --create
 xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>Left" --create --type string --set "tile_left_key"
 xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>Right" --create --type string --set "tile_right_key"
 xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>Up" --create --type string --set "maximize_window_key"
+xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>d" --create --type string --set "show_desktop_key"
+
 
 xfconf-query -c pointers -p /SynPS2_Synaptics_TouchPad/ReverseScrolling --create --type bool --set "true"
 
