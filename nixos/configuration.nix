@@ -200,6 +200,7 @@
 
     # Apps
     vscode-fhs
+    kdePackages.kate
     chromium
     pass
     obsidian
