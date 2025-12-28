@@ -29,4 +29,6 @@ rc-update add dhcpcd default
 
 rc-update add bluetooth default
 
+chsh mark --shel /bin/bash
+
 # TODO: install qwerty-fr and/or package it

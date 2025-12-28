@@ -39,6 +39,7 @@ linux-firmware-other
 linux-firmware-rtl_bt
 linux-firmware-rtl_nic
 linux-lts
+lsblk
 lvm2
 mesa-dri-gallium
 ncdu
@@ -53,6 +54,7 @@ pipewire-pulse
 pipewire-tools
 polkit-elogind
 python3
+shadow
 shellcheck
 tar
 texlive-full
@@ -67,6 +69,7 @@ xclip
 xf86-input-libinput
 xfce4
 xfce4-clipman-plugin
+xfce4-pulseaudio-plugin
 xfce4-screensaver
 xfce4-terminal
 xfce4-whiskermenu-plugin
