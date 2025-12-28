@@ -27,8 +27,13 @@ sed -i 's/iface wlan0 inet dhcp/# iface wlan0 inet dhcp/' /etc/network/interface
 sed -i 's/iface eth0 inet dhcp/# iface eth0 inet dhcp/' /etc/network/interfaces
 rc-update add dhcpcd default
 
+# Enable bluetooth.
 rc-update add bluetooth default
 
+# Make bash the default shell.
 chsh mark --shel /bin/bash
+
+# Set up flatpak.
+su mark -c 'flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo'
 
 # TODO: install qwerty-fr and/or package it

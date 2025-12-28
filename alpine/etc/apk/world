@@ -18,6 +18,7 @@ elogind
 eudev
 file-roller
 firefox
+flatpak
 font-dejavu
 font-fira
 gcompat
@@ -64,8 +65,10 @@ udev-init-scripts-openrc
 vim
 wireless-regdb
 wpa_supplicant
-xcape@edge
+xcape@edge-testing
 xclip
+xdg-desktop-portal
+xdg-desktop-portal-gtk
 xf86-input-libinput
 xfce4
 xfce4-clipman-plugin
