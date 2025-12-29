@@ -36,4 +36,7 @@ chsh mark --shel /bin/bash
 # Set up flatpak.
 su mark -c 'flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo'
 
+# Set up autologin for lightdm
+cp "$SCRIPT_DIR/etc/lightdm/lightdm.conf" /etc/lightdm/lightdm.conf
+
 # TODO: install qwerty-fr and/or package it
