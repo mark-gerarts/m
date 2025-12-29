@@ -84,7 +84,24 @@ setup_xfce() {
     fi
 }
 
+# Java is needed for ltex, but can be tricky because NixOS requires
+# special treatment.
+setup_java_home() {
+    echo "Configuring Java"
+
+    mkdir -p "$HOME/.local/lib"
+    rm -f "$HOME/.local/lib/jvm"
+
+    # Check if a default JVM exists, otherwise assume NixOS.
+    if [ -d "/usr/lib/jvm/default-jvm/" ]; then
+        ln -sf /usr/lib/jvm/default-jvm "$HOME/.local/lib/jvm"
+    else
+        ln -sf /run/current-system/sw/lib/openjdk "HOME/.local/lib/jvm"
+    fi
+}
+
 create_symlinks
+setup_java_home
 setup_vscode
 setup_xfce
 
