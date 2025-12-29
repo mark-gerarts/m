@@ -97,6 +97,9 @@ function smile_prompt
   DF='\[\e[0m\]'
   PS1="[${UC}\u${RC}@${HC}\h${RC}:\w${DF}] ${SC}${DF}\n\$ "
 
+  # Set terminal title
+  echo -ne "\033]0;$(basename $PWD)\007"
+
   [[ $(type -t __vte_prompt_command) == function ]] && __vte_prompt_command
 }
 PROMPT_COMMAND="smile_prompt"
