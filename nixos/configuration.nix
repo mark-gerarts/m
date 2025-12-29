@@ -199,8 +199,8 @@
     jq
 
     # Apps
-    vscode-fhs
     kdePackages.kate
+    vscodium-fhs
     chromium
     pass
     obsidian

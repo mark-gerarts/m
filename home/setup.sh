@@ -7,7 +7,7 @@ create_symlinks() {
 
     dirs=(
         ".ssh"
-        ".config/Code/User"
+        ".config/VSCodium/User"
         ".config/bat"
         ".config/autostart"
         ".config/xfce4/panel"
@@ -24,8 +24,8 @@ create_symlinks() {
         ".bashrc"
         ".eslintrc.json"
         ".ssh/config"
-        ".config/Code/User/settings.json"
-        ".config/Code/User/keybindings.json"
+        ".config/VSCodium/User/settings.json"
+        ".config/VSCodium/User/keybindings.json"
         ".config/bat/config"
         ".config/autostart/xcape.desktop"
         ".config/xfce4/terminal/accels.scm"
@@ -58,19 +58,19 @@ create_symlinks() {
 }
 
 setup_vscode() {
-    if code -v &> /dev/null; then
-        echo "Syncing VSCode extensions..."
+    if codium -v &> /dev/null; then
+        echo "Syncing VSCodium extensions..."
 
         # Get any extensions that are part of the repo but not yet installed, and install them.
-        INSTALLED_EXTENSIONS=$(code --list-extensions | sort)
-        ALL_EXTENSIONS=$(sort "$SCRIPT_DIR/.config/Code/User/extensions.list")
+        INSTALLED_EXTENSIONS=$(codium --list-extensions | sort)
+        ALL_EXTENSIONS=$(sort "$SCRIPT_DIR/.config/VSCodium/User/extensions.list")
         EXTENSIONS_TO_INSTALL=$(comm -13 <(echo "$INSTALLED_EXTENSIONS") <(echo "$ALL_EXTENSIONS"))
-        [ -n "${EXTENSIONS_TO_INSTALL// }" ] && echo "$EXTENSIONS_TO_INSTALL" | xargs -n 1 code --install-extension
+        [ -n "${EXTENSIONS_TO_INSTALL// }" ] && echo "$EXTENSIONS_TO_INSTALL" | xargs -n 1 codium --install-extension
 
         # Update the extensions list if there are any extensions installed but not yet part of the repo.
-        code --list-extensions > "$SCRIPT_DIR/.config/Code/User/extensions.list"
+        codium --list-extensions > "$SCRIPT_DIR/.config/VSCodium/User/extensions.list"
     else
-        echo "VSCode is not installed, skipping."
+        echo "VSCodium is not installed, skipping."
     fi
 }
 
