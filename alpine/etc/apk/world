@@ -5,6 +5,7 @@ blueman
 busybox-mdev-openrc
 chromium@edge-community
 cryptsetup
+curl
 delta
 dhcpcd
 distrobox
@@ -57,6 +58,7 @@ pipewire-pulse
 pipewire-tools
 polkit-elogind
 python3
+setxkbmap
 shadow
 shellcheck
 simdutf@edge-main

@@ -1,8 +1,7 @@
 #!/usr/bin/env sh
 set -e
 
-# TODO: get script dir in an sh-compatible way.
-SCRIPT_DIR=/m/alpine
+SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
 
 # Disable terminal bleep in tty.
 grep -q "blacklist pcspkr" /etc/modprobe.d/blacklist.conf || echo "blacklist pcspkr" >> /etc/modprobe.d/blacklist.conf
@@ -39,4 +38,5 @@ su mark -c 'flatpak remote-add --user --if-not-exists flathub https://dl.flathub
 # Set up autologin for lightdm
 cp "$SCRIPT_DIR/etc/lightdm/lightdm.conf" /etc/lightdm/lightdm.conf
 
-# TODO: install qwerty-fr and/or package it
+# Configure qwerty-fr
+sh "$SCRIPT_DIR/qwerty-fr.sh"
