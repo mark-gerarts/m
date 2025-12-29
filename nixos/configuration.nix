@@ -197,6 +197,7 @@
     ncdu
     zip
     jq
+    fastfetch
 
     # Apps
     kdePackages.kate

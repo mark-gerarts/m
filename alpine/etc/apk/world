@@ -17,6 +17,7 @@ dotnet10-sdk
 e2fsprogs
 elogind
 eudev
+fastfetch
 file-roller
 firefox
 flatpak
