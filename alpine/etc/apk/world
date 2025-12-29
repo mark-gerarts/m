@@ -45,6 +45,7 @@ lsblk
 lvm2
 mesa-dri-gallium
 ncdu
+openjdk21-jre
 openssh
 openssl
 pandoc
