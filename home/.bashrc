@@ -23,8 +23,13 @@ alias glg="git log --graph --abbrev-commit --decorate --date=relative --format=f
 alias gls="glg"
 alias glga="git log --branches --remotes --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(blue)- [%an]%C(reset)%C(bold yellow)%d%C(reset)'"
 
-alias poweroff="sudo poweroff"
-alias reboot="sudo reboot"
+if command -v doas >/dev/null 2>&1; then
+  alias poweroff="doas /sbin/poweroff"
+  alias reboot="doas /sbin/reboot"
+else
+  alias poweroff="sudo poweroff"
+  alias reboot="sudo reboot"
+fi
 
 alias cclip="xclip -selection clipboard"
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"

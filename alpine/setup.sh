@@ -30,7 +30,7 @@ rc-update add dhcpcd default
 rc-update add bluetooth default
 
 # Make bash the default shell.
-chsh mark --shel /bin/bash
+chsh mark --shell /bin/bash
 
 # Set up flatpak.
 su mark -c 'flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo'
@@ -40,3 +40,6 @@ cp "$SCRIPT_DIR/etc/lightdm/lightdm.conf" /etc/lightdm/lightdm.conf
 
 # Configure qwerty-fr
 sh "$SCRIPT_DIR/qwerty-fr.sh"
+
+# Make reboot/poweroff not require a pass
+cp "$SCRIPT_DIR/etc/doas.conf" /etc/doas.d/doas.conf
