@@ -169,6 +169,8 @@
     '';
   };
 
+  programs.ssh.startAgent = true;
+
   environment.systemPackages = with pkgs; [
     # System essentials
     vim
@@ -200,7 +202,6 @@
     fastfetch
 
     # Apps
-    kdePackages.kate
     vscodium-fhs
     chromium
     pass

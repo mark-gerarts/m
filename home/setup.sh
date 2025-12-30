@@ -51,10 +51,6 @@ create_symlinks() {
 
     # For xfce's settings, we just copy instead (symlinking borks).
     cp -r "$SCRIPT_DIR/.config/xfce4/panel" "$HOME/.config/xfce4"
-
-    # TODO: if kate proves a replacement for vscode, port its settings over:
-    # ~/.config/kate
-    # ~/.local/share/kxmlgui5/katepart
 }
 
 setup_vscode() {
@@ -96,7 +92,7 @@ setup_java_home() {
     if [ -d "/usr/lib/jvm/default-jvm/" ]; then
         ln -sf /usr/lib/jvm/default-jvm "$HOME/.local/lib/jvm"
     else
-        ln -sf /run/current-system/sw/lib/openjdk "HOME/.local/lib/jvm"
+        ln -sf /run/current-system/sw/lib/openjdk "$HOME/.local/lib/jvm"
     fi
 }
 
