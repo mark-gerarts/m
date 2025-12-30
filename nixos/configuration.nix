@@ -187,6 +187,7 @@
     xcolor
     xfce.xfce4-clipman-plugin
     xfce.xfdashboard
+    qalculate-gtk
 
     # CLI
     bat
@@ -235,6 +236,7 @@
     distrobox
     dotnet-sdk_9
     fantomas
+    shellcheck
   ];
 
   # This value determines the NixOS release from which the default

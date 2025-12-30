@@ -59,6 +59,7 @@ pipewire-pulse
 pipewire-tools
 polkit-elogind
 python3
+qalculate-gtk
 setxkbmap
 shadow
 shellcheck
