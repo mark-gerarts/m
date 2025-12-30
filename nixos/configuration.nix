@@ -234,6 +234,7 @@
     duckdb
     distrobox
     dotnet-sdk_9
+    fantomas
   ];
 
   # This value determines the NixOS release from which the default
