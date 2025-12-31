@@ -75,6 +75,7 @@ shellcheck
 simdutf@edge-main
 tar
 texlive-full
+tlp
 tree
 udev-init-scripts
 udev-init-scripts-openrc
