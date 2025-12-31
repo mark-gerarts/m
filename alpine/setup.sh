@@ -44,3 +44,12 @@ sh "$SCRIPT_DIR/qwerty-fr.sh"
 
 # Make reboot/poweroff not require a pass
 cp "$SCRIPT_DIR/etc/doas.conf" /etc/doas.d/doas.conf
+
+# TODO: automate NetworkManager setup
+# https://wiki.alpinelinux.org/wiki/NetworkManager
+
+# For the ideapad (current laptop): disable nouveau.
+if [ ! -f /etc/modprobe.d/blacklist-nouveau.conf ]; then
+    cp "$SCRIPT_DIR"/etc/modprobe.d/blacklist-nouveau.conf /etc/modprobe.d/blacklist-nouveau.conf
+    mkinitfs
+fi

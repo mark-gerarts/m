@@ -87,6 +87,7 @@ xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>d" --create --
 
 xfconf-query -c xsettings -p /Net/IconThemeName --create --type string --set "Rodent"
 
+# TODO: add other settings as well, this alone doesn't seem to work.
 xfconf-query -c pointers -p /SynPS2_Synaptics_TouchPad/ReverseScrolling --create --type bool --set "true"
 
 # Panel configuration is a bit messy...

@@ -30,6 +30,7 @@ gvfs
 gzip
 htop
 inotify-tools
+intel-media-driver
 iw
 jq
 kate
@@ -46,6 +47,9 @@ linux-lts
 lsblk
 lvm2
 mesa-dri-gallium
+mesa-utils
+mesa-va-gallium
+mesa-vulkan-intel
 ncdu
 openjdk21-jre
 openssh
@@ -53,6 +57,7 @@ openssl
 pandoc
 pass
 pavucontrol
+pciutils
 pipewire
 pipewire-alsa
 pipewire-pulse
