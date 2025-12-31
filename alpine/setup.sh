@@ -25,10 +25,10 @@ apk add
 # Don't make networking blocking on boot.
 sed -i 's/iface wlan0 inet dhcp/# iface wlan0 inet dhcp/' /etc/network/interfaces
 sed -i 's/iface eth0 inet dhcp/# iface eth0 inet dhcp/' /etc/network/interfaces
-rc-update add dhcpcd default
+rc-update -q add dhcpcd default
 
 # Enable bluetooth.
-rc-update add bluetooth default
+rc-update -q add bluetooth default
 
 # Make bash the default shell.
 chsh mark --shell /bin/bash
@@ -45,8 +45,18 @@ sh "$SCRIPT_DIR/qwerty-fr.sh"
 # Make reboot/poweroff not require a pass
 cp "$SCRIPT_DIR/etc/doas.conf" /etc/doas.d/doas.conf
 
-# TODO: automate NetworkManager setup
-# https://wiki.alpinelinux.org/wiki/NetworkManager
+# Set up NetworkManager
+if [ ! -f /etc/NetworkManager/NetworkManager.conf ]; then
+    adduser mark plugdev
+    cp "$SCRIPT_DIR"/etc/NetworkManager/conf.d/any-user.conf /etc/NetworkManager/conf.d/any-user.conf
+    cp "$SCRIPT_DIR"/etc/NetworkManager/NetworkManager.conf /etc/NetworkManager/NetworkManager.conf
+    rc-service -q networking stop
+    rc-service -q wpa_supplicant stop
+    rc-update -q add networkmanager default
+    rc-update -q del networking boot
+    rc-update -q del wpa_supplicant boot
+    echo "NetworkManager is freshly installed, activate network connections using nmtui or the panel"
+fi
 
 # For the ideapad (current laptop): disable nouveau.
 if [ ! -f /etc/modprobe.d/blacklist-nouveau.conf ]; then

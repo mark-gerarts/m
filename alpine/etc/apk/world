@@ -51,6 +51,10 @@ mesa-utils
 mesa-va-gallium
 mesa-vulkan-intel
 ncdu
+network-manager-applet
+networkmanager
+networkmanager-tui
+networkmanager-wifi
 openjdk21-jre
 openssh
 openssl
