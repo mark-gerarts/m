@@ -17,6 +17,7 @@ dotnet10-sdk
 e2fsprogs
 elogind
 eudev
+evince
 fastfetch
 file-roller
 firefox
@@ -34,6 +35,7 @@ intel-media-driver
 iw
 jq
 kate
+libinput
 lightdm
 lightdm-gtk-greeter
 linux-firmware-i915
