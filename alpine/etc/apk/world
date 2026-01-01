@@ -93,6 +93,7 @@ xdg-desktop-portal-gtk
 xf86-input-libinput
 xfce4
 xfce4-clipman-plugin
+xfce4-notifyd
 xfce4-pulseaudio-plugin
 xfce4-screensaver
 xfce4-terminal
