@@ -35,6 +35,8 @@ chsh mark --shell /bin/bash
 
 # Set up flatpak.
 su mark -c 'flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo'
+su mark -c 'flatpak --user install -y md.obsidian.Obsidian'
+su mark -c 'flatpak --user install -y it.mijorus.smile -y'
 
 # Set up autologin for lightdm
 cp "$SCRIPT_DIR/etc/lightdm/lightdm.conf" /etc/lightdm/lightdm.conf

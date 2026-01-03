@@ -84,6 +84,7 @@ xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>Left" --create
 xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>Right" --create --type string --set "tile_right_key"
 xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>Up" --create --type string --set "maximize_window_key"
 xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>d" --create --type string --set "show_desktop_key"
+xfconf-query -c xfce4-keyboard-shortcuts -p "/commands/custom/<Primary>period" --create --type string --set "flatpak run it.mijorus.smile"
 
 xfconf-query -c xsettings -p /Net/IconThemeName --create --type string --set "Rodent"
 
