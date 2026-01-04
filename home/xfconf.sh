@@ -87,6 +87,7 @@ xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>d" --create --
 xfconf-query -c xfce4-keyboard-shortcuts -p "/commands/custom/<Super>period" --create --type string --set "flatpak run it.mijorus.smile"
 
 xfconf-query -c xsettings -p /Net/IconThemeName --create --type string --set "Rodent"
+xfconf-query -c xsettings -p /Gtk/CursorThemeName --create --type string --set "Adwaita"
 
 xfconf-query -c pointers -p /SynPS2_Synaptics_TouchPad/Acceleration --create --type double --set "5"
 xfconf-query -c pointers -p /SynPS2_Synaptics_TouchPad/Properties/libinput_Tapping_Enabled --create --type int --set "1"
