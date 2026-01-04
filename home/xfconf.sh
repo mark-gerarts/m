@@ -155,4 +155,5 @@ xfconf-query -c xfce4-panel -p /panels/panel-2/plugin-ids --create \
 xfconf-query -c xfce4-panel -p /panels/panel-2/position --create --type string --set "p=10;x=0;y=0"
 xfconf-query -c xfce4-panel -p /panels/panel-2/position-locked --create --type bool --set "true"
 xfconf-query -c xfce4-panel -p /panels/panel-2/size --create --type int --set "48"
+xfconf-query -c xfce4-panel -p /panels/panel-2/leave-opacity --create --type uint --set "0"
 xfconf-query -c xfce4-panel -p /panels --create --type int --set "1"  --type int --set "2"
