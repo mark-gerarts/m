@@ -188,6 +188,7 @@
     xfce.xfce4-clipman-plugin
     xfce.xfdashboard
     qalculate-gtk
+    shotwell
 
     # CLI
     bat
