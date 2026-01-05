@@ -45,7 +45,7 @@ cp "$SCRIPT_DIR/etc/lightdm/lightdm.conf" /etc/lightdm/lightdm.conf
 sh "$SCRIPT_DIR/qwerty-fr.sh"
 
 # Make reboot/poweroff not require a pass
-cp "$SCRIPT_DIR/etc/doas.conf" /etc/doas.d/doas.conf
+cp "$SCRIPT_DIR/etc/doas.d/doas.conf" /etc/doas.d/doas.conf
 
 # Set up NetworkManager
 if [ ! -f /etc/NetworkManager/NetworkManager.conf ]; then
