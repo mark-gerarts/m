@@ -8,6 +8,7 @@ cryptsetup
 curl
 delta
 dhcpcd
+dillo
 distrobox
 doas
 docker
@@ -30,6 +31,7 @@ grub-efi
 gvfs
 gzip
 htop
+hugo
 inotify-tools
 intel-media-driver
 iw
