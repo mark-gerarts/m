@@ -33,6 +33,9 @@ rc-update -q add bluetooth default
 # Make bash the default shell.
 chsh mark --shell /bin/bash
 
+# Enable docker
+rc-update -q add docker default
+
 # Set up flatpak.
 su mark -c 'flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo'
 su mark -c 'flatpak --user install -y md.obsidian.Obsidian'
