@@ -6,12 +6,19 @@ SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
 # Disable terminal bleep in tty.
 grep -q "blacklist pcspkr" /etc/modprobe.d/blacklist.conf || echo "blacklist pcspkr" >> /etc/modprobe.d/blacklist.conf
 
-# Fix for loss of networking after xfce install
+# Fix for loss of networking after desktop install
 # See https://gitlab.alpinelinux.org/alpine/aports/-/issues/9079
 ln -sf "$SCRIPT_DIR"/etc/conf.d/networking /etc/conf.d/networking
 
-# Install xfce4 if needed.
-apk list xfce4 --installed | grep installed > /dev/null || setup-desktop xfce
+apk list mate-desktop --installed | grep installed > /dev/null || setup-desktop mate
+
+install_brisk_menu () {
+    wget --quiet https://mark.gerarts.be/alpine/brisk-menu-0.6.2-r0.apk
+    apk add ./brisk-menu-0.6.2-r0.apk
+    rm brisk-menu-0.6.2-r0.apk
+}
+
+apk list brisk-menu --installed | grep installed > /dev/null || install_brisk_menu
 
 # Set up APK and install packages.
 # WORLD is overwritten on apk operations, so a symlink won't work. This
