@@ -85,9 +85,9 @@ setup_mate() {
     then
         echo "dconf is not installed, skipping MATE setup"
     else
-        # To update: dconf dump /org/mate/ > /m/home/dconf.org.mate.ini
+        # To update: dconf dump / > dconf.ini
         echo "Configuring MATE..."
-        dconf load /org/mate/ < "$SCRIPT_DIR"/dconf.org.mate.ini
+        dconf load / < "$SCRIPT_DIR"/dconf.ini
     fi
 }
 
