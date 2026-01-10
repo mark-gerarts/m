@@ -45,9 +45,9 @@ Set up dotfiles (creates symlinks):
 $ /m/home/setup.sh
 ```
 
-## Alpine
+TODO: port MATE config to NixOS (build brisk-menu).
 
-TODO: further document installation/initial setup.
+## Alpine
 
 Install Alpine using `setup-alpine` using `cryptsys` for the disk. Reboot into the root user
 and get SSH keys onto the device.
