@@ -75,3 +75,10 @@ if [ ! -f /etc/modprobe.d/blacklist-nouveau.conf ]; then
     cp "$SCRIPT_DIR"/etc/modprobe.d/blacklist-nouveau.conf /etc/modprobe.d/blacklist-nouveau.conf
     mkinitfs
 fi
+
+# Set up some wallpapers
+if [ ! -d /usr/share/backgrounds/ubuntu-mate-common ]; then
+    git clone https://github.com/ubuntu-mate/ubuntu-mate-artwork
+    cp -r ubuntu-mate-artwork/usr /
+    rm -rf ubuntu-mate-artwork
+fi

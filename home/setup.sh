@@ -80,6 +80,17 @@ setup_xfce() {
     fi
 }
 
+setup_mate() {
+    if ! command -v dconf >/dev/null 2>&1
+    then
+        echo "dconf is not installed, skipping MATE setup"
+    else
+        # To update: dconf dump /org/mate/ > /m/home/dconf.org.mate.ini
+        echo "Configuring MATE..."
+        dconf load /org/mate/ < "$SCRIPT_DIR"/dconf.org.mate.ini
+    fi
+}
+
 # Java is needed for ltex, but can be tricky because NixOS requires
 # special treatment.
 setup_java_home() {
@@ -100,5 +111,6 @@ create_symlinks
 setup_java_home
 setup_vscode
 setup_xfce
+setup_mate
 
 echo "Done!"

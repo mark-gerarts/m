@@ -11,6 +11,8 @@ busybox-mdev-openrc
 chromium@edge-community
 cryptsetup
 curl
+dbus
+dbus-x11
 delta
 dhcpcd
 dillo
@@ -101,6 +103,7 @@ xclip
 xdg-desktop-portal
 xdg-desktop-portal-gtk
 xf86-input-libinput
+xfce4-terminal
 xinit
 xorg-server
 zip
