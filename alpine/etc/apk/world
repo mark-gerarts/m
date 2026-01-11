@@ -83,6 +83,7 @@ polkit
 polkit-elogind
 python3
 qalculate-gtk
+seatd
 setxkbmap
 shadow
 shellcheck
@@ -94,6 +95,7 @@ tlp
 tree
 udev-init-scripts
 udev-init-scripts-openrc
+udisks2
 vim
 vscodium@edge-testing
 vte3@edge-community
