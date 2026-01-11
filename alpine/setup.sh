@@ -14,7 +14,7 @@ apk list mate-desktop --installed | grep installed > /dev/null || setup-desktop 
 
 install_brisk_menu () {
     wget --quiet https://mark.gerarts.be/alpine/brisk-menu-0.6.2-r0.apk
-    apk add ./brisk-menu-0.6.2-r0.apk
+    apk add --allow-untrusted ./brisk-menu-0.6.2-r0.apk
     rm brisk-menu-0.6.2-r0.apk
 }
 
@@ -57,6 +57,13 @@ sh "$SCRIPT_DIR/qwerty-fr.sh"
 # Make reboot/poweroff not require a pass
 cp "$SCRIPT_DIR/etc/doas.d/doas.conf" /etc/doas.d/doas.conf
 
+# Set up some wallpapers
+if [ ! -d /usr/share/backgrounds/ubuntu-mate-common ]; then
+    git clone https://github.com/ubuntu-mate/ubuntu-mate-artwork
+    cp -r ubuntu-mate-artwork/usr /
+    rm -rf ubuntu-mate-artwork
+fi
+
 # Set up NetworkManager
 if [ ! -f /etc/NetworkManager/NetworkManager.conf ]; then
     adduser mark plugdev
@@ -74,11 +81,4 @@ fi
 if [ ! -f /etc/modprobe.d/blacklist-nouveau.conf ]; then
     cp "$SCRIPT_DIR"/etc/modprobe.d/blacklist-nouveau.conf /etc/modprobe.d/blacklist-nouveau.conf
     mkinitfs
-fi
-
-# Set up some wallpapers
-if [ ! -d /usr/share/backgrounds/ubuntu-mate-common ]; then
-    git clone https://github.com/ubuntu-mate/ubuntu-mate-artwork
-    cp -r ubuntu-mate-artwork/usr /
-    rm -rf ubuntu-mate-artwork
 fi

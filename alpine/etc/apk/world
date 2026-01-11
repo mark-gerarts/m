@@ -79,6 +79,7 @@ pipewire
 pipewire-alsa
 pipewire-pulse
 pipewire-tools
+polkit
 polkit-elogind
 python3
 qalculate-gtk
