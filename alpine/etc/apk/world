@@ -5,6 +5,8 @@ atools
 bat
 blkid
 blueman
+bluez-alsa
+bluez-deprecated
 brisk-menu><Q1/S+E32rWNTYdKEUxVLxScxzmdPA=
 busybox-mdev-openrc
 chromium@edge-community
@@ -78,6 +80,7 @@ pciutils
 pipewire
 pipewire-alsa
 pipewire-pulse
+pipewire-spa-bluez
 pipewire-tools
 polkit
 polkit-elogind
