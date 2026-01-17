@@ -101,24 +101,27 @@
     user = "mark";
   };
 
-  services.xserver = {
-    enable = true;
-    # TODO: move to ly once autologin is supported.
-    displayManager.lightdm.enable = true;
-    desktopManager.xfce.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 
-    # https://github.com/NixOS/nixpkgs/issues/372753#issuecomment-3148277801
-    xkb = {
-      layout = "us_qwerty-fr";
-      extraLayouts = {
-        us_qwerty-fr = {
-          description = "US QWERTY with French accents";
-          languages = [ "eng" ];
-          symbolsFile = "${pkgs.qwerty-fr}/share/X11/xkb/symbols/us_qwerty-fr";
-        };
-      };
-    };
-  };
+  environment.gnome.excludePackages = (with pkgs; [
+    gnome-tour
+    cheese
+    gnome-music
+    epiphany
+    geary
+    totem
+    tali
+    iagno
+    hitori
+    atomix
+    yelp
+    seahorse
+    gnome-contacts
+    gnome-initial-setup
+    gnome-shell-extensions
+    gnome-calculator
+  ]);
 
   virtualisation = {
     docker = {
@@ -156,10 +159,6 @@
   };
 
   services.flatpak.enable = true;
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  };
   systemd.services.flatpak-repo = {
     wantedBy = [ "multi-user.target" ];
     requires = [ "network-online.target" ];
@@ -169,8 +168,6 @@
     '';
   };
 
-  programs.ssh.startAgent = true;
-
   environment.systemPackages = with pkgs; [
     # System essentials
     vim
@@ -179,16 +176,17 @@
     delta
     inotify-tools
 
-    # xfce/de stuff
+    # DE stuff
+    gnome-tweaks
+    gnome-terminal
+    gnome-extension-manager
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.caffeine
+    gnomeExtensions.dash-to-dock
+    gnomeExtensions.runcat
     qwerty-fr
-    xfce.xfce4-whiskermenu-plugin
-    xcape # To fix whiskermenu meta keybind (https://unix.stackexchange.com/a/447801).
-    pavucontrol
-    xcolor
-    xfce.xfce4-clipman-plugin
-    xfce.xfdashboard
     qalculate-gtk
-    shotwell
+    smile
 
     # CLI
     bat

@@ -9,9 +9,6 @@ create_symlinks() {
         ".ssh"
         ".config/VSCodium/User"
         ".config/bat"
-        ".config/autostart"
-        ".config/xfce4/panel"
-        ".config/xfce4/terminal"
         ".pulsar"
         ".local/bin"
     )
@@ -27,8 +24,6 @@ create_symlinks() {
         ".config/VSCodium/User/settings.json"
         ".config/VSCodium/User/keybindings.json"
         ".config/bat/config"
-        ".config/autostart/xcape.desktop"
-        ".config/xfce4/terminal/accels.scm"
         ".gitconfig"
         ".pylintrc"
         ".vimrc"
@@ -48,9 +43,6 @@ create_symlinks() {
 
     # Also add .profile for some other distros
     ln -sf "$SCRIPT_DIR/.bashrc" "$HOME/.profile"
-
-    # For xfce's settings, we just copy instead (symlinking borks).
-    cp -r "$SCRIPT_DIR/.config/xfce4/panel" "$HOME/.config/xfce4"
 }
 
 setup_vscode() {
@@ -70,16 +62,6 @@ setup_vscode() {
     fi
 }
 
-setup_xfce() {
-    if ! command -v xfconf-query >/dev/null 2>&1
-    then
-        echo "xfconf-query is not installed, skipping xfce4 setup"
-    else
-        echo "Configuring xfce..."
-        "$SCRIPT_DIR/xfconf.sh"
-    fi
-}
-
 # Java is needed for ltex, but can be tricky because NixOS requires
 # special treatment.
 setup_java_home() {
@@ -96,9 +78,13 @@ setup_java_home() {
     fi
 }
 
+setup_desktop() {
+    dconf load / < "$SCRIPT_DIR"/dconf.ini
+}
+
 create_symlinks
 setup_java_home
 setup_vscode
-setup_xfce
+setup_desktop
 
 echo "Done!"

@@ -47,7 +47,7 @@ $ /m/home/setup.sh
 
 ## Alpine
 
-TODO: further document installation/initial setup.
+TODO: this is broken atm; as I'm moving DEs.
 
 Install Alpine using `setup-alpine` using `cryptsys` for the disk. Reboot into the root user
 and get SSH keys onto the device.
