@@ -79,6 +79,9 @@ setup_java_home() {
 }
 
 setup_desktop() {
+    echo "Setting up desktop"
+
+    ln -sf "$SCRIPT_DIR"/.config/xkb "$HOME"/.config/xkb
     dconf load / < "$SCRIPT_DIR"/dconf.ini
 }
 
