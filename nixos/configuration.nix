@@ -200,6 +200,7 @@
     zip
     jq
     fastfetch
+    imagemagick
 
     # Apps
     vscodium-fhs
