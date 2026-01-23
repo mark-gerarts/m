@@ -211,7 +211,7 @@
     kdePackages.filelight
     spotify
     libreoffice
-    zotero
+    jabref
     evince
     gnome-disk-utility
 
