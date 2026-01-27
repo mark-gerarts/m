@@ -195,6 +195,7 @@ in
     qwerty-fr
     qalculate-gtk
     smile
+    dconf-editor
 
     # CLI
     bat
@@ -209,6 +210,7 @@ in
     jq
     fastfetch
     imagemagick
+    unzip
 
     # Apps
     vscodium-fhs
