@@ -1,5 +1,10 @@
 { config, pkgs, ... }:
 
+let
+  unstable =
+    import (builtins.fetchTarball "https://github.com/nixos/nixpkgs/tarball/nixos-unstable")
+      { config = config.nixpkgs.config; };
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -104,24 +109,27 @@
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
-  environment.gnome.excludePackages = (with pkgs; [
-    gnome-tour
-    cheese
-    gnome-music
-    epiphany
-    geary
-    totem
-    tali
-    iagno
-    hitori
-    atomix
-    yelp
-    seahorse
-    gnome-contacts
-    gnome-initial-setup
-    gnome-shell-extensions
-    gnome-calculator
-  ]);
+  environment.gnome.excludePackages = (
+    with pkgs;
+    [
+      gnome-tour
+      cheese
+      gnome-music
+      epiphany
+      geary
+      totem
+      tali
+      iagno
+      hitori
+      atomix
+      yelp
+      seahorse
+      gnome-contacts
+      gnome-initial-setup
+      gnome-shell-extensions
+      gnome-calculator
+    ]
+  );
 
   virtualisation = {
     docker = {
@@ -211,7 +219,7 @@
     kdePackages.filelight
     spotify
     libreoffice
-    jabref
+    unstable.jabref # Regular jabref fails to build atm (6.0-alpha.3).
     evince
     gnome-disk-utility
 
@@ -231,7 +239,7 @@
     fira-code-symbols
 
     # Dev
-    python315
+    python314
     duckdb
     distrobox
     dotnet-sdk_9
