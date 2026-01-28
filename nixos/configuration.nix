@@ -128,6 +128,7 @@ in
       gnome-initial-setup
       gnome-shell-extensions
       gnome-calculator
+      papers
     ]
   );
 
@@ -222,7 +223,7 @@ in
     spotify
     libreoffice
     unstable.jabref # Regular jabref fails to build atm (6.0-alpha.3).
-    evince
+    papers
     gnome-disk-utility
 
     # Latex
@@ -247,6 +248,9 @@ in
     dotnet-sdk_9
     fantomas
     shellcheck
+
+    # Storagebox
+    wsdd
   ];
 
   # This value determines the NixOS release from which the default
