@@ -116,7 +116,6 @@ in
       cheese
       gnome-music
       epiphany
-      geary
       totem
       tali
       iagno
@@ -177,6 +176,16 @@ in
     '';
   };
 
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [];
+  };
+
   environment.systemPackages = with pkgs; [
     # System essentials
     vim
@@ -189,7 +198,6 @@ in
     gnome-tweaks
     gnome-terminal
     gnome-extension-manager
-    gnomeExtensions.blur-my-shell
     gnomeExtensions.caffeine
     gnomeExtensions.dash-to-dock
     gnomeExtensions.runcat
@@ -225,6 +233,7 @@ in
     unstable.jabref # Regular jabref fails to build atm (6.0-alpha.3).
     papers
     gnome-disk-utility
+    geary
 
     # Latex
     hunspell
@@ -234,7 +243,6 @@ in
 
     # Nix tooling
     nix-index
-    nix-ld
     nixfmt
 
     # Fonts
@@ -243,11 +251,14 @@ in
 
     # Dev
     python314
+    uv
     duckdb
     distrobox
     dotnet-sdk_9
     fantomas
     shellcheck
+    sbcl
+    rlwrap
 
     # Storagebox
     wsdd
