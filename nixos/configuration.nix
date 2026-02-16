@@ -259,6 +259,7 @@ in
     shellcheck
     sbcl
     rlwrap
+    emacs
 
     # Storagebox
     wsdd

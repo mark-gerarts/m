@@ -11,6 +11,7 @@ create_symlinks() {
         ".config/bat"
         ".pulsar"
         ".local/bin"
+        ".lem"
     )
 
     for dir in "${dirs[@]}"; do
@@ -35,6 +36,8 @@ create_symlinks() {
         ".local/bin/spp"
         ".local/bin/mksh"
         ".local/bin/bs"
+        ".lem/init.lisp"
+        ".emacs"
     )
 
     for file in "${files[@]}"; do

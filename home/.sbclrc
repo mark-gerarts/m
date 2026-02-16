@@ -7,3 +7,10 @@
     (load quicklisp-init)))
 
 (defun ql (x) (ql:quickload x))
+
+#-ocicl
+(when (probe-file #P"/home/mark/.local/share/ocicl/ocicl-runtime.lisp")
+  (load #P"/home/mark/.local/share/ocicl/ocicl-runtime.lisp"))
+(asdf:initialize-source-registry
+  (list :source-registry (list :directory (uiop:getcwd)) :inherit-configuration))
+
