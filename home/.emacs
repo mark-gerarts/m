@@ -1,5 +1,3 @@
-;;; Emacs4CL 0.5.0 <https://github.com/susam/emacs4cl>
-
 ;; Start fullscreen
 (push '(fullscreen . maximized) default-frame-alist)
 
@@ -8,6 +6,7 @@
   (tool-bar-mode 0)
   (scroll-bar-mode 0))
 (setq inhibit-startup-screen t)
+(global-display-line-numbers-mode 1)
 
 ;; Theme.
 (load-theme 'modus-operandi)
@@ -32,7 +31,10 @@
   (package-refresh-contents))
 
 ;; Install packages.
-(dolist (package '(slime paredit rainbow-delimiters))
+(dolist (package '(slime paredit
+                   rainbow-delimiters
+                   centaur-tabs
+                   winum))
   (unless (package-installed-p package)
     (package-install package)))
 
@@ -72,13 +74,19 @@
 (set-face-foreground 'rainbow-delimiters-depth-8-face "#999")  ; medium gray
 (set-face-foreground 'rainbow-delimiters-depth-9-face "#666")  ; dark gray
 
-;; Custom additions
-
 ;; Enable Vertico for vertical completion UI
 (use-package vertico
   :ensure t
   :init
   (vertico-mode))
+
+;; Fuzzier finding in vertico
+(use-package orderless
+  :ensure t
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles partial-completion))))
+  (completion-pcm-leading-wildcard t))
 
 ;; Enable Marginalia for rich annotations (shortcuts/descriptions)
 (use-package marginalia
@@ -120,5 +128,37 @@
 (context-menu-mode 1)
 
 ;; Show tabs for buffers in window
-(global-tab-line-mode 1)
+;; (global-tab-line-mode 1)
 ;; Alternatively: look into centaur tabs
+
+(use-package centaur-tabs
+  :demand
+  :config
+  (centaur-tabs-mode t)
+  :bind
+  ("M-<left>" . centaur-tabs-backward)
+  ("M-<right>" . centaur-tabs-forward))
+
+;; Select windows by pressing e.g. M-1
+(setq winum-keymap
+    (let ((map (make-sparse-keymap)))
+      (define-key map (kbd "C-`") 'winum-select-window-by-number)
+      (define-key map (kbd "C-²") 'winum-select-window-by-number)
+      (define-key map (kbd "M-0") 'winum-select-window-0-or-10)
+      (define-key map (kbd "M-1") 'winum-select-window-1)
+      (define-key map (kbd "M-2") 'winum-select-window-2)
+      (define-key map (kbd "M-3") 'winum-select-window-3)
+      (define-key map (kbd "M-4") 'winum-select-window-4)
+      (define-key map (kbd "M-5") 'winum-select-window-5)
+      (define-key map (kbd "M-6") 'winum-select-window-6)
+      (define-key map (kbd "M-7") 'winum-select-window-7)
+      (define-key map (kbd "M-8") 'winum-select-window-8)
+      map))
+
+(require 'winum)
+(winum-mode)
+
+;; Enable autosave
+;; Maybe look into super-save later.
+(auto-save-visited-mode 1)
+(setq auto-save-visited-interval 60)
