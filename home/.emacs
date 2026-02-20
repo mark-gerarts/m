@@ -1,3 +1,6 @@
+;; Look at https://github.com/syl20bnr/spacemacs/blob/690889139ab12b3b08b5efabbb93d52c86065fcf/layers/%2Blang/common-lisp/packages.el
+;; TODO: https://github.com/huangfeiyu/eldoc-mouse hover docs
+
 ;; Start fullscreen
 (push '(fullscreen . maximized) default-frame-alist)
 
@@ -31,7 +34,10 @@
   (package-refresh-contents))
 
 ;; Install packages.
-(dolist (package '(slime paredit
+(dolist (package '(slime
+                   slime-company
+                   company
+                   paredit
                    rainbow-delimiters
                    centaur-tabs
                    winum))
@@ -74,6 +80,15 @@
 (set-face-foreground 'rainbow-delimiters-depth-8-face "#999")  ; medium gray
 (set-face-foreground 'rainbow-delimiters-depth-9-face "#666")  ; dark gray
 
+;; Slime-company
+;(defun common-lisp/pre-init-slime-company ()
+;  (spacemacs|use-package-add-hook slime
+;    :pre-config
+;    (progn
+;      (setq slime-company-completion 'fuzzy)
+;      (add-to-list 'slime-contribs 'slime-company))))
+;(defun common-lisp/init-slime-company ())
+
 ;; Enable Vertico for vertical completion UI
 (use-package vertico
   :ensure t
@@ -99,6 +114,12 @@
 
 ;; Allow Mx slime-load-system and Mx slime-open-system
 (add-to-list 'slime-contribs 'slime-asdf)
+(add-to-list 'slime-contribs 'slime-sbcl-exts)
+(add-to-list 'slime-contribs 'slime-fancy)
+
+;; Fuzzy slime autocomplete
+;(setq slime-complete-symbol*-fancy t)
+;(setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol)
 
 ;; Treemacs (directory tree)
 ;; https://github.com/Alexander-Miller/treemacs
@@ -162,3 +183,21 @@
 ;; Maybe look into super-save later.
 (auto-save-visited-mode 1)
 (setq auto-save-visited-interval 60)
+
+;; Save automatically before C-c C-k
+(defun custom-slime-save-and-compile-file ()
+  "Save the current buffer and then run slime-compile-and-load-file."
+  (interactive)
+  (when (buffer-modified-p)
+    (save-buffer))
+  (slime-compile-and-load-file))
+
+(with-eval-after-load 'slime
+  (define-key slime-mode-map (kbd "C-c C-k") 'custom-slime-save-and-compile-file))
+
+;; Delete trailing whitespace on save.
+(add-hook 'before-save-hook
+          'delete-trailing-whitespace)
+
+(add-hook 'after-init-hook 'global-company-mode)
+(setq company-minimum-prefix-length 1)
