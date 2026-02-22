@@ -1,5 +1,5 @@
-;; Look at https://github.com/syl20bnr/spacemacs/blob/690889139ab12b3b08b5efabbb93d52c86065fcf/layers/%2Blang/common-lisp/packages.el
-;; TODO: https://github.com/huangfeiyu/eldoc-mouse hover docs
+;; TODO: make alt-backspace remove up until first non-whitespace,
+;; not including the word, as is the defualt
 
 ;; Start fullscreen
 (push '(fullscreen . maximized) default-frame-alist)
@@ -10,6 +10,7 @@
   (scroll-bar-mode 0))
 (setq inhibit-startup-screen t)
 (global-display-line-numbers-mode 1)
+(setq column-number-mode t)
 
 ;; Theme.
 (load-theme 'modus-operandi)
@@ -40,6 +41,7 @@
                    paredit
                    rainbow-delimiters
                    centaur-tabs
+                   drag-stuff
                    winum))
   (unless (package-installed-p package)
     (package-install package)))
@@ -79,15 +81,6 @@
 (set-face-foreground 'rainbow-delimiters-depth-7-face "#ccc")  ; light gray
 (set-face-foreground 'rainbow-delimiters-depth-8-face "#999")  ; medium gray
 (set-face-foreground 'rainbow-delimiters-depth-9-face "#666")  ; dark gray
-
-;; Slime-company
-;(defun common-lisp/pre-init-slime-company ()
-;  (spacemacs|use-package-add-hook slime
-;    :pre-config
-;    (progn
-;      (setq slime-company-completion 'fuzzy)
-;      (add-to-list 'slime-contribs 'slime-company))))
-;(defun common-lisp/init-slime-company ())
 
 ;; Enable Vertico for vertical completion UI
 (use-package vertico
@@ -143,7 +136,7 @@
         ("C-x t C-t" . treemacs-find-file)
         ("C-x t M-t" . treemacs-find-tag)))
 
-(treemacs-start-on-boot)
+;(treemacs-start-on-boot)
 
 ;; Right-click context menu
 (context-menu-mode 1)
@@ -201,3 +194,37 @@
 
 (add-hook 'after-init-hook 'global-company-mode)
 (setq company-minimum-prefix-length 1)
+
+;; Fix indents on save for lisp files.
+;; https://www.emacswiki.org/emacs/indent-file.el
+(defun indent-whole-buffer ()
+    "indent whole buffer and untabify it"
+    (interactive)
+    (delete-trailing-whitespace)
+    (indent-region (point-min) (point-max) nil)
+    (untabify (point-min) (point-max)))
+(defun indent-file-when-save ()
+    "indent file when save."
+    (make-local-variable 'after-save-hook)
+    (add-hook 'after-save-hook
+        (lambda ()
+            (if (buffer-file-name)
+                (indent-whole-buffer))
+            (save-buffer))))
+(add-hook 'lisp-mode-hook 'indent-file-when-save)
+
+;(add-hook 'lisp-mode-hook
+;          (lambda ()
+;            (add-hook 'before-save-hook 'indent-region nil t)))
+
+;; Overwrite selected text.
+(delete-selection-mode 1)
+
+;; Auto-insert closing parens when typing (
+(electric-pair-mode 1)
+
+;; Allow M-<up> and M-<down> to swap lines around.
+(require 'drag-stuff)
+(drag-stuff-global-mode t)
+(define-key drag-stuff-mode-map (drag-stuff--kbd 'up) 'drag-stuff-up)
+(define-key drag-stuff-mode-map (drag-stuff--kbd 'down) 'drag-stuff-down)

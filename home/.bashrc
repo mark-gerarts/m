@@ -49,6 +49,9 @@ alias code="codium"
 alias code.="codium ."
 alias codium="codium --password-store=basic"
 
+# Open emacs in background, silently.
+alias emacs.="emacs . > /dev/null 2>&1 &"
+
 # Node
 alias node-repl="noderepl"
 noderepl() {
