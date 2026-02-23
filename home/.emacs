@@ -23,6 +23,10 @@
 (setq show-paren-delay 0)
 (show-paren-mode)
 
+;; Ruler at col 80
+(setopt display-fill-column-indicator-column 80)
+(add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
+
 ;; Write customizations to a separate file instead of this file.
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file t)
@@ -212,10 +216,6 @@
                 (indent-whole-buffer))
             (save-buffer))))
 (add-hook 'lisp-mode-hook 'indent-file-when-save)
-
-;(add-hook 'lisp-mode-hook
-;          (lambda ()
-;            (add-hook 'before-save-hook 'indent-region nil t)))
 
 ;; Overwrite selected text.
 (delete-selection-mode 1)
