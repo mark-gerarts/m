@@ -183,7 +183,31 @@ in
 
   programs.nix-ld = {
     enable = true;
-    libraries = with pkgs; [];
+    libraries = with pkgs; [
+      gmp
+      mpfr
+    ];
+  };
+
+  # Set up rclone for the storagebox. Only syncs the Jabref folder for now,
+  # since this is most sensitive to network hiccups.
+  systemd.services.storagebox-bisync = {
+    description = "Storagebox rclone bidirectional sync";
+    wants = [ "network-online.target" ];
+    after = [ "network-online.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.rclone}/bin/rclone bisync /home/mark/Documents/Jabref storagebox:/backup/Jabref --check-access --conflict-resolve=newer --quiet";
+      User = "mark";
+    };
+  };
+  systemd.timers.storagebox-bisync = {
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnBootSec = "5m";
+      OnUnitActiveSec = "15m";
+      Unit = "storagebox-bisync.service";
+    };
   };
 
   environment.systemPackages = with pkgs; [
@@ -263,6 +287,7 @@ in
 
     # Storagebox
     wsdd
+    rclone
   ];
 
   # This value determines the NixOS release from which the default
