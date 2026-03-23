@@ -255,7 +255,7 @@ in
     spotify
     libreoffice
     unstable.jabref # Regular jabref fails to build atm (6.0-alpha.3).
-    papers
+    kdePackages.okular # Okular is better than the gnome default (papers)
     gnome-disk-utility
     geary
 
