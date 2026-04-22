@@ -22,6 +22,8 @@ in
   services.printing.enable = true;
 
   networking.networkmanager.enable = true;
+  # Required for eduvpn
+  networking.networkmanager.plugins = with pkgs; [ networkmanager-openvpn ];  
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
@@ -288,6 +290,10 @@ in
     # Storagebox
     wsdd
     rclone
+
+    # Work
+    eduvpn-client
+    openvpn
   ];
 
   # This value determines the NixOS release from which the default
