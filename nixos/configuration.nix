@@ -288,6 +288,7 @@ in
     emacs
     cargo
     rustc
+    gcc
 
     # ugh
     opencode
