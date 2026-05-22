@@ -286,6 +286,11 @@ in
     sbcl
     rlwrap
     emacs
+    cargo
+    rustc
+
+    # ugh
+    opencode
 
     # Storagebox
     wsdd
