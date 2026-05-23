@@ -286,9 +286,12 @@ in
     sbcl
     rlwrap
     emacs
-    cargo
-    rustc
+
+    # Rust
     gcc
+    rustup
+    pkg-config
+    openssl
 
     # ugh
     opencode
