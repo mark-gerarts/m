@@ -199,7 +199,7 @@ in
     after = [ "network-online.target" ];
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "${pkgs.rclone}/bin/rclone bisync /home/mark/Documents/Jabref storagebox:/backup/Jabref --check-access --conflict-resolve=newer --quiet";
+      ExecStart = "${pkgs.rclone}/bin/rclone bisync /home/mark/Documents/Jabref storagebox:/home/Jabref --check-access --conflict-resolve=newer --quiet";
       User = "mark";
     };
   };
