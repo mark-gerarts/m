@@ -1,10 +1,5 @@
 { config, pkgs, ... }:
 
-let
-  unstable =
-    import (builtins.fetchTarball "https://github.com/nixos/nixpkgs/tarball/nixos-unstable")
-      { config = config.nixpkgs.config; };
-in
 {
   imports = [
     ./hardware-configuration.nix
@@ -23,7 +18,7 @@ in
 
   networking.networkmanager.enable = true;
   # Required for eduvpn
-  networking.networkmanager.plugins = with pkgs; [ networkmanager-openvpn ];  
+  networking.networkmanager.plugins = with pkgs; [ networkmanager-openvpn ];
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
@@ -108,6 +103,7 @@ in
     user = "mark";
   };
 
+  # Maybe move to KDE instead...
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
@@ -231,6 +227,7 @@ in
     qalculate-gtk
     smile
     dconf-editor
+    kdePackages.gwenview
 
     # CLI
     bat
@@ -256,7 +253,7 @@ in
     kdePackages.filelight
     spotify
     libreoffice
-    unstable.jabref # Regular jabref fails to build atm (6.0-alpha.3).
+    jabref
     kdePackages.okular # Okular is better than the gnome default (papers)
     gnome-disk-utility
     geary
@@ -286,12 +283,11 @@ in
     sbcl
     rlwrap
     emacs
-
-    # Rust
-    gcc
-    rustup
-    pkg-config
     openssl
+
+    # Nim
+    nim
+    nimble
 
     # ugh
     opencode
