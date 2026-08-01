@@ -251,12 +251,12 @@
     obsidian
     signal-desktop
     kdePackages.filelight
-    spotify
     libreoffice
     jabref
     kdePackages.okular # Okular is better than the gnome default (papers)
+    kdePackages.kate
+    drawy
     gnome-disk-utility
-    geary
 
     # Latex
     hunspell
