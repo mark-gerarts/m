@@ -21,4 +21,10 @@
     options hid_apple swap_opt_cmd=1
     options hid_apple fnmode=2
    '';
+
+   # Auto upgrades take up all CPU cores; limit this.
+   system.autoUpgrade.flags = [
+    "--max-jobs" "1"
+    "--cores" "2"
+   ];
 }
