@@ -235,7 +235,6 @@
     pandoc
     xclip
     tree
-    comma
     htop
     ncdu
     zip
@@ -243,6 +242,7 @@
     fastfetch
     imagemagick
     unzip
+    chafa
 
     # Apps
     vscodium-fhs
@@ -284,10 +284,6 @@
     rlwrap
     emacs
     openssl
-
-    # Nim
-    nim
-    nimble
 
     # ugh
     opencode
