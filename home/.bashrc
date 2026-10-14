@@ -44,6 +44,13 @@ alias diff="diff --color"
 
 alias ns="nix-shell"
 
+# Allows "files" to open explorer in current dir, or
+# "files /path/to/dir".
+files() {
+  xdg-open "${1:-.}" >/dev/null 2>&1 &
+  disown
+}
+
 # Fix code asking password on startup
 alias code="codium"
 alias code.="codium ."
