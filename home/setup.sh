@@ -11,6 +11,7 @@ create_symlinks() {
         ".config/bat"
         ".pulsar"
         ".local/bin"
+        ".local/share/kxmlgui5/katepart"
         ".lem"
     )
 
@@ -25,6 +26,7 @@ create_symlinks() {
         ".config/VSCodium/User/settings.json"
         ".config/VSCodium/User/keybindings.json"
         ".config/bat/config"
+        ".config/katerc"
         ".gitconfig"
         ".pylintrc"
         ".vimrc"
@@ -36,6 +38,7 @@ create_symlinks() {
         ".local/bin/spp"
         ".local/bin/mksh"
         ".local/bin/bs"
+        ".local/share/kxmlgui5/katepart/katepart5ui.rc"
         ".lem/init.lisp"
         ".emacs"
     )
