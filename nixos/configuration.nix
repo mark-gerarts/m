@@ -208,6 +208,11 @@
     };
   };
 
+  # Pulsar is using an old electron version... Update ASAP.
+  nixpkgs.config.permittedInsecurePackages = [
+    "pulsar-1.132.1"
+  ];
+
   environment.systemPackages = with pkgs; [
     # System essentials
     vim
@@ -282,6 +287,7 @@
     shellcheck
     sbcl
     rlwrap
+    pulsar
     emacs
     openssl
 

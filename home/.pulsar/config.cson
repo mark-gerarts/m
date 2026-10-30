@@ -15,4 +15,4 @@
     strict: false
   slima:
     autoStart: true
-    slimePath: "~/bin/slime"
+    slimePath: "~/.local/bin/slime"

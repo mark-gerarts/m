@@ -6,7 +6,7 @@
   (when (probe-file quicklisp-init)
     (load quicklisp-init)))
 
-(defun ql (x) (ql:quickload x))
+;(defun ql (x) (ql:quickload x))
 
 #-ocicl
 (when (probe-file #P"/home/mark/.local/share/ocicl/ocicl-runtime.lisp")

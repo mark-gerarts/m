@@ -91,9 +91,30 @@ setup_desktop() {
     dconf load / < "$SCRIPT_DIR"/dconf.ini
 }
 
+setup_common_lisp() {
+    # Install Slime for Pulsar+SLIMA.
+    if [ ! -d "$HOME/.local/bin/slime" ]; then
+        SLIME_VERSION=2.32
+        wget "https://github.com/slime/slime/archive/refs/tags/v$SLIME_VERSION.zip" -O slime.zip
+        unzip slime.zip
+        mv "slime-$SLIME_VERSION" "$HOME/.local/bin/slime"
+        rm slime.zip
+    fi
+
+    # OCICL (should make a nix package for this).
+    if [ ! -f "$HOME/.local/bin/ocicl" ]; then
+        git clone https://github.com/ocicl/ocicl
+        pushd ocicl || exit
+        sbcl --load setup.lisp
+        popd ocicl || exit
+        rm -r ocicl
+    fi
+}
+
 create_symlinks
 setup_java_home
 setup_vscode
 setup_desktop
+setup_common_lisp
 
 echo "Done!"
