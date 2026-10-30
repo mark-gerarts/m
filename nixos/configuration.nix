@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  lemFlake = builtins.getFlake "github:lem-project/lem/main";
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -213,6 +216,12 @@
     "pulsar-1.132.1"
   ];
 
+  # I guess I need to get with the times...
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
   environment.systemPackages = with pkgs; [
     # System essentials
     vim
@@ -288,6 +297,7 @@
     sbcl
     rlwrap
     pulsar
+    lemFlake.packages.${stdenv.hostPlatform.system}.lem-ncurses
     emacs
     openssl
 

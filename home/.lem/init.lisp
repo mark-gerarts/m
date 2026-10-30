@@ -9,8 +9,11 @@
           (lambda ()
             (lem/completion-mode:completion-end)))
 
-;; Set the color theme.
-(load-theme "lem-default")
+(load-theme "github")
 
-;; Enable line numbers
 (lem/line-numbers:toggle-line-numbers)
+
+(lem/auto-save::auto-save-mode t)
+
+(add-hook (variable-value 'before-save-hook :global t)
+          #'delete-trailing-whitespace)
