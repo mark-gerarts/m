@@ -211,11 +211,6 @@ in
     };
   };
 
-  # Pulsar is using an old electron version... Update ASAP.
-  nixpkgs.config.permittedInsecurePackages = [
-    "pulsar-1.132.1"
-  ];
-
   # I guess I need to get with the times...
   nix.settings.experimental-features = [
     "nix-command"
@@ -296,7 +291,6 @@ in
     shellcheck
     sbcl
     rlwrap
-    pulsar
     lemFlake.packages.${stdenv.hostPlatform.system}.lem-ncurses
     emacs
     openssl

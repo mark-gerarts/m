@@ -9,7 +9,7 @@
           (lambda ()
             (lem/completion-mode:completion-end)))
 
-(load-theme "github")
+(load-theme "windows-95-light")
 
 (lem/line-numbers:toggle-line-numbers)
 
