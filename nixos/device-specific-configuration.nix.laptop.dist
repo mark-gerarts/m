@@ -25,6 +25,9 @@
    # Auto upgrades take up all CPU cores; limit this.
    system.autoUpgrade.flags = [
     "--max-jobs" "1"
-    "--cores" "2"
+    "--cores" "1"
    ];
+
+   # Actually...
+   system.autoUpgrade.enable = lib.mkForce false;
 }

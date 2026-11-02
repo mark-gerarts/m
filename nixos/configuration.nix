@@ -256,9 +256,7 @@ in
     # Apps
     vscodium-fhs
     chromium
-    pass
     obsidian
-    signal-desktop
     kdePackages.filelight
     libreoffice
     jabref
@@ -299,7 +297,6 @@ in
     opencode
 
     # Storagebox
-    wsdd
     rclone
 
     # Work
